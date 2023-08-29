@@ -1009,7 +1009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fde88708a89d5c4a972d9a924ca80a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 800
+  mouseSensitivity: 700
   playerBody: {fileID: 870983838}
 --- !u!1 &969029809
 GameObject:
@@ -3513,7 +3513,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149485242820}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: b3cffab866acab94089154c5a790d702, type: 2}
   m_CullingMode: 0
@@ -3617,7 +3617,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6004211295061909526}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50eff8d495d3eaf4e9ccff76a306098d, type: 3}
   m_Name: 
@@ -3632,7 +3632,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6004211295061909526}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae275eae12f469a488396e0335c7c943, type: 3}
   m_Name: 
