@@ -3117,28 +3117,6 @@ MonoBehaviour:
   thresholdDistance: 2
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   clickedColor: {r: 1, g: 0, b: 0, a: 1}
-  objectAnimator1: {fileID: 0}
-  objectAnimator2: {fileID: 3469287837252902109}
-  animationTrigger1: WallSlide
-  animationTrigger2: LadderSlide
---- !u!114 &1959296784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1959296768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8949841658d2b7b4cb6dd85773b9b767, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorAnim: {fileID: 1959030566}
-  doorOpen: 0
-  openAnimationName: LadderWallSlideAnim
-  closeAnimationName: DoorClose
-  waitTimer: 1
-  pauseInteraction: 0
 --- !u!1 &1961492151
 GameObject:
   m_ObjectHideFlags: 0
@@ -3923,3 +3901,8 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 1.529, z: 0}
   randomPosition: {x: 0, y: 0, z: 0}
   upsideDownPosition: {x: 0, y: 7.456, z: 0}
+  objectAnimator: {fileID: 1959030566}
+  animationTrigger1: LadderSlide
+  animationTrigger2: WallSlide
+  ladderAnimationScript: {fileID: 3469287837252902110}
+  WallladderAnimationScript: {fileID: 1959030567}

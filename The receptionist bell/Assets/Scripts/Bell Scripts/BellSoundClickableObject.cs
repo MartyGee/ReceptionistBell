@@ -16,6 +16,13 @@ public class BellSoundClickableObject : MonoBehaviour
     public Vector3 randomPosition;
     public Vector3 upsideDownPosition = new Vector3(0, 7.456f, 0);
 
+    public Animator objectAnimator; // Reference to the Animator component.
+    public string animationTrigger1 = "LadderSlide"; // Trigger for the second animation.
+    public string animationTrigger2 = "WallSlide"; // Trigger for the first animation.
+
+    public LadderAnimation ladderAnimationScript;
+    public WallLadderAnimation WallladderAnimationScript;
+
     void Start()
     {
         originalPosition = transform.position;
@@ -49,9 +56,15 @@ public class BellSoundClickableObject : MonoBehaviour
                         {
                             TeleportToRandomPosition();
                         }
-                        else if (counter >= 19 && counter < 20)
-                        {
+
+                        if (counter == 19)
+                        { 
                             TeleportToUpsideDownPosition();
+                            //objectAnimator.SetTrigger(animationTrigger1);
+                            //objectAnimator.SetTrigger(animationTrigger2);
+                            ladderAnimationScript.Update();
+                            WallladderAnimationScript.WallLadderVoid();
+
                         }
                         else if (counter == 20)
                         {

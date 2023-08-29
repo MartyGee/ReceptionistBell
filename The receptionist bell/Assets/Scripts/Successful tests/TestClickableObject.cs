@@ -10,11 +10,6 @@ public class TestClickableObject : MonoBehaviour
     private Renderer rend;
     private bool isKeyDown = false;
 
-    public Animator objectAnimator1; // Reference to the Animator component.
-    public Animator objectAnimator2; // Reference to the Animator component.
-    public string animationTrigger1 = "WallSlide"; // Trigger for the first animation.
-    public string animationTrigger2 = "LadderSlide"; // Trigger for the second animation.
-
     void Start()
     {
         rend = GetComponent<Renderer>();
@@ -36,8 +31,7 @@ public class TestClickableObject : MonoBehaviour
                     {
                         rend.material.color = clickedColor;
 
-                        objectAnimator1.SetTrigger(animationTrigger1);
-                        objectAnimator2.SetTrigger(animationTrigger2);
+                        
                         isKeyDown = true;
 
                         
