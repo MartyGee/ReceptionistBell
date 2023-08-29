@@ -3,19 +3,21 @@ using UnityEngine;
 public class BellSoundClickableObject : MonoBehaviour
 {
     public AudioClip bellSound;
-    public AudioSource audioSource;
     public GameObject player;
+
     public float thresholdDistance = 5f;
+
     public Vector3 minBounds;
     public Vector3 maxBounds;
     public Vector3 originalPosition;
+
     private int counter = 0;
+
     public Vector3 randomPosition;
     public Vector3 upsideDownPosition = new Vector3(0, 7.456f, 0);
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         originalPosition = transform.position;
 
         // Make sure bellSound is assigned
@@ -38,11 +40,12 @@ public class BellSoundClickableObject : MonoBehaviour
                 {
                     if (hit.collider.gameObject == gameObject)
                     {
-                        audioSource.PlayOneShot(bellSound);
+                        // Play the bell sound at the object's position
+                        AudioSource.PlayClipAtPoint(bellSound, transform.position);
                         counter++;
 
-                        if (counter >= 7 && counter < 8 ||
-                            counter >= 13 && counter < 14)
+                        if ((counter >= 7 && counter < 8) ||
+                            (counter >= 13 && counter < 14))
                         {
                             TeleportToRandomPosition();
                         }

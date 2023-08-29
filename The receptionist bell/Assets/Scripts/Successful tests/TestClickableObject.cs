@@ -10,6 +10,11 @@ public class TestClickableObject : MonoBehaviour
     private Renderer rend;
     private bool isKeyDown = false;
 
+    public Animator objectAnimator1; // Reference to the Animator component.
+    public Animator objectAnimator2; // Reference to the Animator component.
+    public string animationTrigger1 = "WallSlide"; // Trigger for the first animation.
+    public string animationTrigger2 = "LadderSlide"; // Trigger for the second animation.
+
     void Start()
     {
         rend = GetComponent<Renderer>();
@@ -24,12 +29,18 @@ public class TestClickableObject : MonoBehaviour
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
+
                 if (Physics.Raycast(ray, out hit))
                 {
                     if (hit.collider.gameObject == gameObject)
                     {
                         rend.material.color = clickedColor;
+
+                        objectAnimator1.SetTrigger(animationTrigger1);
+                        objectAnimator2.SetTrigger(animationTrigger2);
                         isKeyDown = true;
+
+                        
                     }
                 }
             }
