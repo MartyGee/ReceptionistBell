@@ -11,12 +11,18 @@ public class BellSoundClickableObject : MonoBehaviour
     public Vector3 originalPosition;
     private int counter = 0;
     public Vector3 randomPosition;
-    public Vector3 upsideDownPosition = new Vector3 (0,7.456f,0);
+    public Vector3 upsideDownPosition = new Vector3(0, 7.456f, 0);
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         originalPosition = transform.position;
+
+        // Make sure bellSound is assigned
+        if (bellSound == null)
+        {
+            Debug.LogError("Bell sound is not assigned!");
+        }
     }
 
     void Update()
@@ -34,47 +40,47 @@ public class BellSoundClickableObject : MonoBehaviour
                     {
                         audioSource.PlayOneShot(bellSound);
                         counter++;
-                        if (counter >= 7 && counter < 8)
+
+                        if (counter >= 7 && counter < 8 ||
+                            counter >= 13 && counter < 14)
                         {
-                            // Generate a random position within the defined bounds
-                            randomPosition = new Vector3
-                                (Random.Range(minBounds.x, maxBounds.x),
-                                 Random.Range(minBounds.y, maxBounds.y),
-                                 Random.Range(minBounds.z, maxBounds.z));
-
-                            // Teleport the object to the new position
-                            transform.position = randomPosition;
+                            TeleportToRandomPosition();
                         }
-
-                        else if (counter >= 13 && counter < 14)
-                        {
-                            // Generate a random position within the defined bounds
-                            randomPosition = new Vector3
-                                (Random.Range(minBounds.x, maxBounds.x),
-                                 Random.Range(minBounds.y, maxBounds.y),
-                                 Random.Range(minBounds.z, maxBounds.z));
-
-                            // Teleport the object to the new position
-                            transform.position = randomPosition;
-                        }
-
                         else if (counter >= 19 && counter < 20)
                         {
-                            // Teleport the object to the new position
-                            Quaternion upsideDownRotation = Quaternion.Euler(90,90,-90);
-                            transform.rotation = upsideDownRotation;
-                            transform.position = upsideDownPosition;
+                            TeleportToUpsideDownPosition();
                         }
-
                         else if (counter == 20)
                         {
-                            Quaternion originalRotation = Quaternion.Euler(-90, 90, -90);
-                            transform.rotation = originalRotation;
-                            transform.position = originalPosition;      
+                            ResetToOriginalPosition();
                         }
                     }
                 }
             }
         }
+    }
+
+    void TeleportToRandomPosition()
+    {
+        randomPosition = new Vector3(
+            Random.Range(minBounds.x, maxBounds.x),
+            Random.Range(minBounds.y, maxBounds.y),
+            Random.Range(minBounds.z, maxBounds.z));
+
+        transform.position = randomPosition;
+    }
+
+    void TeleportToUpsideDownPosition()
+    {
+        Quaternion upsideDownRotation = Quaternion.Euler(90, 90, -90);
+        transform.rotation = upsideDownRotation;
+        transform.position = upsideDownPosition;
+    }
+
+    void ResetToOriginalPosition()
+    {
+        Quaternion originalRotation = Quaternion.Euler(-90, 90, -90);
+        transform.rotation = originalRotation;
+        transform.position = originalPosition;
     }
 }
