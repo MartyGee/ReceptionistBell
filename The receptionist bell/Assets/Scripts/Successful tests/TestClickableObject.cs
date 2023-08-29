@@ -24,12 +24,17 @@ public class TestClickableObject : MonoBehaviour
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
+
                 if (Physics.Raycast(ray, out hit))
                 {
                     if (hit.collider.gameObject == gameObject)
                     {
                         rend.material.color = clickedColor;
+
+                        
                         isKeyDown = true;
+
+                        
                     }
                 }
             }
