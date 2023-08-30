@@ -5,7 +5,7 @@ public class TestClickableObjectUI : MonoBehaviour
     public GameObject Instruction;
     public GameObject AnimeObject;
     public GameObject ThisTrigger;
-    //public AudioSource DoorOpenSound;
+    public AudioSource DoorOpenSound;
     public bool Action = false;
 
     void Start()
@@ -37,9 +37,9 @@ public class TestClickableObjectUI : MonoBehaviour
             if (Action == true)
             {
                 Instruction.SetActive(false);
-                AnimeObject.GetComponent<Animator>().Play("DoorOpen");
+                AnimeObject.GetComponent<Animator>().Play("DoorAnim");
                 ThisTrigger.SetActive(false);
-                //DoorOpenSound.Play();
+                DoorOpenSound.Play();
                 Action = false;
             }
         }
