@@ -9,11 +9,6 @@ public class PickUpScript : MonoBehaviour
     [SerializeField] private float PickupRange;
     private Rigidbody CurrentObject;
 
-
-    void Start()
-    {
-
-    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -41,7 +36,7 @@ public class PickUpScript : MonoBehaviour
             Vector3 DirectionToPoint = PickupTarget.position - CurrentObject.position;
             float DistanceToPoint = DirectionToPoint.magnitude;
 
-            CurrentObject.velocity = DirectionToPoint * 2f * DistanceToPoint;
+            CurrentObject.velocity = 2f * DistanceToPoint * DirectionToPoint;
         }
     }
 }
