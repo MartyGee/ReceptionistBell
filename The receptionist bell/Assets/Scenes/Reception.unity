@@ -1674,7 +1674,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081888981}
   m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.4275002, y: 0.49150062, z: -5.9949994}
+  m_LocalPosition: {x: 7.4385, y: 0.49150062, z: -7.082}
   m_LocalScale: {x: 1, y: 1.3000003, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4323,7 +4323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 203e4f42ad04534468508d41d76cf506, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.43
+      value: 7.441
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 203e4f42ad04534468508d41d76cf506, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4331,7 +4331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 203e4f42ad04534468508d41d76cf506, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.93
+      value: -7.017
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 203e4f42ad04534468508d41d76cf506, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5475,6 +5475,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bellSound: {fileID: 8300000, guid: 7abe48209ec83d94991d366a7947d0ff, type: 3}
   player: {fileID: 870983835}
-  thresholdDistance: 5
+  thresholdDistance: 3
   ladderAnimationScript: {fileID: 3469287837252902110}
   wallLadderAnimationScript: {fileID: 1959030567}

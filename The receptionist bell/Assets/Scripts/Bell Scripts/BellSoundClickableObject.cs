@@ -44,18 +44,17 @@ public class BellSoundClickableObject : MonoBehaviour
                     AudioSource.PlayClipAtPoint(bellSound, transform.position);
                     counter++;
 
-                    if ((counter >= 7 && counter < 8) ||
-                        (counter >= 13 && counter < 14))
+                    if (counter == 7 | counter == 8 | counter == 9 ) 
                     {
                         TeleportToRandomPosition();
                     }
-                    else if (counter == 19)
+                    else if (counter == 10)
                     {
                         TeleportToUpsideDownPosition();
                         ladderAnimationScript.LadderVoid();
                         wallLadderAnimationScript.WallLadderVoid();
                     }
-                    else if (counter == 20)
+                    else if (counter == 11)
                     {
                         ResetToOriginalPosition();
                     }
