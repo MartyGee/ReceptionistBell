@@ -531,6 +531,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439249295}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &448710994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 448710995}
+  m_Layer: 0
+  m_Name: PickUpPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &448710995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448710994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.666}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 963194228}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &455298404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,6 +1150,7 @@ GameObject:
   - component: {fileID: 870983840}
   - component: {fileID: 870983842}
   - component: {fileID: 870983843}
+  - component: {fileID: 870983844}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1188,6 +1220,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 870983842}
   speed: 7
+--- !u!114 &870983844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870983835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34a337fadcb7b1f4ebfb4803c15ca088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PickupMask:
+    serializedVersion: 2
+    m_Bits: 8
+  PlayerCam: {fileID: 963194227}
+  PickupTarget: {fileID: 448710995}
+  PickupRange: 5
 --- !u!1 &879980727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,7 +1537,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.803, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 448710995}
   m_Father: {fileID: 870983838}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1826,8 +1877,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107521734}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 6.4719, z: -9.5}
-  m_LocalScale: {x: 8.750119, y: 1, z: 6.0566845}
+  m_LocalPosition: {x: -0, y: 6.4719, z: -9.5865}
+  m_LocalScale: {x: 8.750119, y: 0.8270602, z: 6.0566845}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1961492152}
@@ -3133,8 +3184,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478583217}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 5.4289, y: 4.5, z: -9.5}
-  m_LocalScale: {x: 9.128823, y: 1, z: 10}
+  m_LocalPosition: {x: 5.4289, y: 4.5, z: -9.5865}
+  m_LocalScale: {x: 9.128823, y: 0.8270602, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1961492152}
@@ -3230,8 +3281,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524104957}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -5.4357, y: 4.5, z: -9.5}
-  m_LocalScale: {x: 9.128823, y: 1, z: 10}
+  m_LocalPosition: {x: -5.4357, y: 4.5, z: -9.5865}
+  m_LocalScale: {x: 9.128823, y: 0.8270602, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1961492152}
@@ -4374,6 +4425,10 @@ PrefabInstance:
       value: TestCube
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 203e4f42ad04534468508d41d76cf506, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 203e4f42ad04534468508d41d76cf506, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -4397,7 +4452,7 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &1959296770
@@ -5476,5 +5531,5 @@ MonoBehaviour:
   bellSound: {fileID: 8300000, guid: 7abe48209ec83d94991d366a7947d0ff, type: 3}
   player: {fileID: 870983835}
   thresholdDistance: 3
-  ladderAnimationScript: {fileID: 3469287837252902110}
+  ladderAnimationScript: {fileID: 0}
   wallLadderAnimationScript: {fileID: 1959030567}

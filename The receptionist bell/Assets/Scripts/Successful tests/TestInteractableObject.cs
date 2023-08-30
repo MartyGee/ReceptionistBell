@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TestClickableObjectUI : MonoBehaviour
+public class TestInteractableObject : MonoBehaviour
 {
     public GameObject Instruction;
     public GameObject AnimeObject;
