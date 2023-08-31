@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class TestClickableObject : MonoBehaviour
 {
@@ -7,42 +6,70 @@ public class TestClickableObject : MonoBehaviour
     public float thresholdDistance = 5f;
     public Color normalColor = Color.white;
     public Color clickedColor = Color.red;
+    public MouseLook cameraScript;
     private Renderer rend;
-    private bool isKeyDown = false;
+    private bool isMouseOver = false;
+    private bool isPickedUp = false;
 
     void Start()
     {
         rend = GetComponent<Renderer>();
         rend.material.color = normalColor;
     }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        float distance = Vector3.Distance(player.transform.position, transform.position);
+
+        if (distance < thresholdDistance)
         {
-            float distance = Vector3.Distance(player.transform.position, transform.position);
-            if (distance < thresholdDistance)
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-
-                if (Physics.Raycast(ray, out hit))
+                if (hit.collider.gameObject == gameObject)
                 {
-                    if (hit.collider.gameObject == gameObject)
+                    isMouseOver = true;
+
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
-                        rend.material.color = clickedColor;
+                        isPickedUp = !isPickedUp;
 
-                        
-                        isKeyDown = true;
-
-                        
+                        if (!isPickedUp)
+                        {
+                            // Unlock the camera when object is not picked up
+                            cameraScript.enabled = true;
+                        }
                     }
                 }
+                else
+                {
+                    isMouseOver = false;
+                }
+            }
+            else
+            {
+                isMouseOver = false;
             }
         }
-        if (Input.GetKeyUp(KeyCode.E) && isKeyDown)
+        else
         {
-            rend.material.color = normalColor;
-            isKeyDown = false;
+            isMouseOver = false;
+        }
+
+        if (isPickedUp)
+        {
+            if (Input.GetMouseButton(0) && isMouseOver)
+            {
+                cameraScript.enabled = false; // Lock the camera when rotating the picked up object
+
+                float rotationSpeed = 5f;
+                float mouseX = Input.GetAxis("Mouse X") * rotationSpeed;
+
+                // Rotate the picked up object based on mouse movement
+                transform.Rotate(Vector3.up, -mouseX, Space.World);
+            }
         }
     }
 }
