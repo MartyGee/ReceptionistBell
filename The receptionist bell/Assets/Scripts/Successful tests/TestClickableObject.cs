@@ -37,11 +37,6 @@ public class TestClickableObject : MonoBehaviour
                 if (hit.collider.gameObject == gameObject)
                 {
                     isMouseOver = true;
-
-                    if (Input.GetKeyDown(KeyCode.E))
-                    {
-                        TogglePickUp();
-                    }
                 }
                 else
                 {
@@ -56,6 +51,11 @@ public class TestClickableObject : MonoBehaviour
         else
         {
             isMouseOver = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            HandleEKeyPress();
         }
 
         if (isPickedUp)
@@ -89,11 +89,16 @@ public class TestClickableObject : MonoBehaviour
 
     void RotateObject()
     {
-        float rotationSpeed = 5f;
-        float mouseX = Input.GetAxis("Mouse X") * rotationSpeed;
+        if (isPickedUp && isMouseOver)
+        {
+            float rotationSpeed = 5f;
+            float mouseX = Input.GetAxis("Mouse X") * rotationSpeed;
+            float mouseY = Input.GetAxis("Mouse Y") * rotationSpeed;
 
-        // Rotate the picked up object based on mouse movement
-        transform.Rotate(Vector3.up, -mouseX, Space.World);
+            // Rotate the picked up object based on mouse movement
+            transform.Rotate(Vector3.up, -mouseX, Space.World);
+            transform.Rotate(Vector3.right, mouseY, Space.World);
+        }
     }
 
     void LockCamera()
@@ -106,20 +111,20 @@ public class TestClickableObject : MonoBehaviour
         cameraScript.enabled = true;
     }
 
-    void TogglePickUp()
+    void HandleEKeyPress()
     {
-        if (!isPickedUp && !isObjectHeld)
-        {
-            isPickedUp = true;
-        }
-        else
+        if (isPickedUp)
         {
             isPickedUp = false;
             isObjectHeld = false;
+            UnlockCamera();
+        }
+        else if (isMouseOver) // Only pick up the object if the mouse is over it
+        {
+            isPickedUp = true;
         }
     }
 }
-
 
 
 
