@@ -7,9 +7,15 @@ public class TestClickableObject : MonoBehaviour
     public Color normalColor = Color.white;
     public Color clickedColor = Color.red;
     public MouseLook cameraScript;
+
+    [Header("Debug Variables")]
+    public bool isMouseOver = false;
+    public bool isPickedUp = false;
+    public bool isMouseButtonDown = false;
+    public bool isRotating = false;
+    public bool isObjectHeld = false;
+
     private Renderer rend;
-    private bool isMouseOver = false;
-    private bool isPickedUp = false;
 
     void Start()
     {
@@ -34,13 +40,7 @@ public class TestClickableObject : MonoBehaviour
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        isPickedUp = !isPickedUp;
-
-                        if (!isPickedUp)
-                        {
-                            // Unlock the camera when object is not picked up
-                            cameraScript.enabled = true;
-                        }
+                        TogglePickUp();
                     }
                 }
                 else
@@ -60,18 +60,68 @@ public class TestClickableObject : MonoBehaviour
 
         if (isPickedUp)
         {
-            if (Input.GetMouseButton(0) && isMouseOver)
+            if (Input.GetMouseButtonDown(0))
             {
-                cameraScript.enabled = false; // Lock the camera when rotating the picked up object
-
-                float rotationSpeed = 5f;
-                float mouseX = Input.GetAxis("Mouse X") * rotationSpeed;
-
-                // Rotate the picked up object based on mouse movement
-                transform.Rotate(Vector3.up, -mouseX, Space.World);
+                isMouseButtonDown = true;
+                isObjectHeld = true;
+                LockCamera();
             }
+
+            if (isMouseButtonDown && Input.GetMouseButton(0))
+            {
+                isRotating = true;
+                RotateObject();
+            }
+            else if (isMouseButtonDown && Input.GetMouseButtonUp(0))
+            {
+                isMouseButtonDown = false;
+                isRotating = false;
+                UnlockCamera();
+            }
+        }
+        else
+        {
+            isMouseButtonDown = false;
+            isObjectHeld = false;
+            UnlockCamera();
+        }
+    }
+
+    void RotateObject()
+    {
+        float rotationSpeed = 5f;
+        float mouseX = Input.GetAxis("Mouse X") * rotationSpeed;
+
+        // Rotate the picked up object based on mouse movement
+        transform.Rotate(Vector3.up, -mouseX, Space.World);
+    }
+
+    void LockCamera()
+    {
+        cameraScript.enabled = false;
+    }
+
+    void UnlockCamera()
+    {
+        cameraScript.enabled = true;
+    }
+
+    void TogglePickUp()
+    {
+        if (!isPickedUp && !isObjectHeld)
+        {
+            isPickedUp = true;
+        }
+        else
+        {
+            isPickedUp = false;
+            isObjectHeld = false;
         }
     }
 }
+
+
+
+
 
 //Questo script è solo un test per separare la funzione "oggetto interagibile" dallo script originale (BellSoundClickableObject).
