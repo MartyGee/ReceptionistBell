@@ -58,6 +58,7 @@ public class SpacialRotationScript : MonoBehaviour
             if (isMouseButtonDown && Input.GetMouseButton(0))
             {
                 isRotating = true;
+                LockCamera();
                 RotateObject();
             }
             else if (isMouseButtonDown && Input.GetMouseButtonUp(0))
@@ -116,8 +117,5 @@ public class SpacialRotationScript : MonoBehaviour
         }
     }
 }
-
-
-
 
 //Questo script è solo un test per separare la funzione "oggetto interagibile" dallo script originale (BellSoundClickableObject).
