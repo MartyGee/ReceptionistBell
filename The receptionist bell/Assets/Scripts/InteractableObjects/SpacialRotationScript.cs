@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TestClickableObject : MonoBehaviour
+public class SpacialRotationScript : MonoBehaviour
 {
     public GameObject player;
     public Color normalColor = Color.white;
