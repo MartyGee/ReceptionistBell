@@ -4,7 +4,7 @@ public class PickUpScript : MonoBehaviour
 {
     [SerializeField] private LayerMask PickupMask;
     [SerializeField] private Camera PlayerCam;
-    [SerializeField] private Transform PickupTarget;
+    [SerializeField] private Transform PickupPoint;
     [Space]
     [SerializeField] private float PickupRange;
     private Rigidbody CurrentObject;
@@ -33,7 +33,7 @@ public class PickUpScript : MonoBehaviour
     {
         if (CurrentObject)
         {
-            Vector3 DirectionToPoint = PickupTarget.position - CurrentObject.position;
+            Vector3 DirectionToPoint = PickupPoint.position - CurrentObject.position;
             float DistanceToPoint = DirectionToPoint.magnitude;
 
             CurrentObject.velocity = 2f * DistanceToPoint * DirectionToPoint;
