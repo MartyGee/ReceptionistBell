@@ -3,8 +3,8 @@ using UnityEngine;
 public class TestClickableObject : MonoBehaviour
 {
     public GameObject player;
-    public Color normalColor = Color.white;
-    public Color clickedColor = Color.red;
+    //public Color normalColor = Color.white;
+    //public Color clickedColor = Color.red;
     public MouseLook cameraScript;
 
     [Header("Debug Variables")]
@@ -17,11 +17,7 @@ public class TestClickableObject : MonoBehaviour
 
     private Renderer rend;
 
-    void Start()
-    {
-        rend = GetComponent<Renderer>();
-        rend.material.color = normalColor;
-    }
+
 
     void Update()
     {
