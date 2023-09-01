@@ -2264,7 +2264,7 @@ MonoBehaviour:
     m_Bits: 8
   PlayerCam: {fileID: 963194227}
   PickupPoint: {fileID: 448710995}
-  PickupRange: 7
+  PickupRange: 3
 --- !u!1 &879980727
 GameObject:
   m_ObjectHideFlags: 0
