@@ -3,7 +3,6 @@ using UnityEngine;
 public class TestClickableObject : MonoBehaviour
 {
     public GameObject player;
-    public float thresholdDistance = 5f;
     public Color normalColor = Color.white;
     public Color clickedColor = Color.red;
     public MouseLook cameraScript;
@@ -14,6 +13,7 @@ public class TestClickableObject : MonoBehaviour
     public bool isMouseButtonDown = false;
     public bool isRotating = false;
     public bool isObjectHeld = false;
+    public bool isInteracting = false;
 
     private Renderer rend;
 
@@ -25,23 +25,15 @@ public class TestClickableObject : MonoBehaviour
 
     void Update()
     {
-        float distance = Vector3.Distance(player.transform.position, transform.position);
+        // Use Physics.Raycast with infinite distance
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
 
-        if (distance < thresholdDistance)
+        if (Physics.Raycast(ray, out hit, float.MaxValue))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
+            if (hit.collider.gameObject == gameObject)
             {
-                if (hit.collider.gameObject == gameObject)
-                {
-                    isMouseOver = true;
-                }
-                else
-                {
-                    isMouseOver = false;
-                }
+                isMouseOver = true;
             }
             else
             {
@@ -58,7 +50,7 @@ public class TestClickableObject : MonoBehaviour
             HandleEKeyPress();
         }
 
-        if (isPickedUp)
+        if (isPickedUp && isInteracting)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -113,15 +105,18 @@ public class TestClickableObject : MonoBehaviour
 
     void HandleEKeyPress()
     {
-        if (isPickedUp)
+        // Check if the player is within the threshold distance and the object is in range
+        if (isPickedUp && isInteracting)
         {
             isPickedUp = false;
             isObjectHeld = false;
             UnlockCamera();
+            isInteracting = false; // Cease all interactions
         }
-        else if (isMouseOver) // Only pick up the object if the mouse is over it
+        else if (isMouseOver && player.GetComponent<PickUpScript>().IsInRange) // Only pick up if mouse is over and in range
         {
             isPickedUp = true;
+            isInteracting = true; // Start interactions
         }
     }
 }

@@ -7,6 +7,13 @@ public class PickUpScript : MonoBehaviour
     [SerializeField] private Transform PickupPoint;
     [Space]
     [SerializeField] private float PickupRange;
+
+    // Add the IsInRange property
+    public bool IsInRange
+    {
+        get; private set;
+    }
+
     private Rigidbody CurrentObject;
 
     void Update()
@@ -17,6 +24,7 @@ public class PickUpScript : MonoBehaviour
             {
                 CurrentObject.useGravity = true;
                 CurrentObject = null;
+                IsInRange = false; // Object is no longer in range when not picked up
                 return;
             }
 
@@ -25,6 +33,11 @@ public class PickUpScript : MonoBehaviour
             {
                 CurrentObject = HitInfo.rigidbody;
                 CurrentObject.useGravity = false;
+                IsInRange = true; // Object is in range and can be picked up
+            }
+            else
+            {
+                IsInRange = false; // Object is not in range
             }
         }
     }
