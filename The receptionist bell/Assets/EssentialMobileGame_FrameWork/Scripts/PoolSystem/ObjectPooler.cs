@@ -60,7 +60,9 @@ public class ObjectPooler<T> : MonoBehaviour where T : ObjectPooler<T>
         }
     }
 
+#pragma warning disable CS0693 // Il parametro di tipo ha lo stesso nome del parametro del tipo outer
     protected GameObject GetPooledObject<T>(T itemType)
+#pragma warning restore CS0693 // Il parametro di tipo ha lo stesso nome del parametro del tipo outer
     {
         var type = itemType.GetType();
 
@@ -116,7 +118,9 @@ public class ObjectPooler<T> : MonoBehaviour where T : ObjectPooler<T>
         return null;
     }
 
+#pragma warning disable CS0693 // Il parametro di tipo ha lo stesso nome del parametro del tipo outer
     protected void SpawnObjectPoolable<T>()
+#pragma warning restore CS0693 // Il parametro di tipo ha lo stesso nome del parametro del tipo outer
     {
 
         var type = typeof(T);
