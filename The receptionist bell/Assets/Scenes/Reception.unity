@@ -677,13 +677,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 870983835}
   cameraScript: {fileID: 963194229}
+  playerMovementScript: {fileID: 870983843}
   isMouseOver: 0
   isPickedUp: 0
   isMouseButtonDown: 0
   isRotating: 0
   isObjectHeld: 0
   isInteracting: 0
-  playerMovement: {fileID: 0}
 --- !u!1 &109712251
 GameObject:
   m_ObjectHideFlags: 0
@@ -3092,6 +3092,8 @@ GameObject:
   - component: {fileID: 1081888985}
   - component: {fileID: 1081888984}
   - component: {fileID: 1081888986}
+  - component: {fileID: 1081888987}
+  - component: {fileID: 1081888988}
   m_Layer: 3
   m_Name: TestCollisionsTable
   m_TagString: Untagged
@@ -3189,6 +3191,40 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1081888987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081888981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8cb9968445397429c6592e296b7fab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 870983835}
+  cameraScript: {fileID: 963194229}
+  playerMovementScript: {fileID: 870983843}
+  isMouseOver: 0
+  isPickedUp: 0
+  isMouseButtonDown: 0
+  isRotating: 0
+  isObjectHeld: 0
+  isInteracting: 0
+--- !u!65 &1081888988
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081888981}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1785295, y: 0.80008614, z: 1.1720734}
+  m_Center: {x: 0, y: 0.40020418, z: -0.000000059604645}
 --- !u!1 &1107521734
 GameObject:
   m_ObjectHideFlags: 0
@@ -4389,7 +4425,7 @@ CapsuleCollider:
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1346331957
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4610,13 +4646,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 870983835}
   cameraScript: {fileID: 963194229}
+  playerMovementScript: {fileID: 870983843}
   isMouseOver: 0
   isPickedUp: 0
   isMouseButtonDown: 0
   isRotating: 0
   isObjectHeld: 0
   isInteracting: 0
-  playerMovement: {fileID: 0}
 --- !u!65 &1358958571
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7440,13 +7476,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 870983835}
   cameraScript: {fileID: 963194229}
+  playerMovementScript: {fileID: 870983843}
   isMouseOver: 0
   isPickedUp: 0
-  isMouseButtonDown: 0
+  isMouseButtonDown: 1
   isRotating: 0
   isObjectHeld: 0
   isInteracting: 0
-  playerMovement: {fileID: 870983843}
 --- !u!1 &1960824939
 GameObject:
   m_ObjectHideFlags: 0

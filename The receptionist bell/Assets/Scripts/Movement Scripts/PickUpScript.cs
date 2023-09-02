@@ -12,7 +12,6 @@ public class PickUpScript : MonoBehaviour
     [SerializeField] private float MaxDistance = 10f;   // Maximum pickup distance
 
     private float initialDistance; // Initial pickup distance
-    private Vector3 initialPickupPointPosition; // Initial position of PickupPoint
     private float currentDistance; // Current pickup distance
 
     // Add the IsInRange property
@@ -22,7 +21,6 @@ public class PickUpScript : MonoBehaviour
 
     private void Start()
     {
-        initialPickupPointPosition = PickupPoint.position;
         initialDistance = PickupRange; // Set the initial pickup distance to the PickupRange value
         currentDistance = initialDistance;
     }

@@ -3,9 +3,8 @@ using UnityEngine;
 public class SpacialRotationScript : MonoBehaviour
 {
     public GameObject player;
-    //public Color normalColor = Color.white;
-    //public Color clickedColor = Color.red;
     public MouseLook cameraScript;
+    public PlayerMovement playerMovementScript;
 
     [Header("Debug Variables")]
     public bool isMouseOver = false;
@@ -14,10 +13,6 @@ public class SpacialRotationScript : MonoBehaviour
     public bool isRotating = false;
     public bool isObjectHeld = false;
     public bool isInteracting = false;
-
-    private Renderer rend;
-
-
 
     void Update()
     {
@@ -73,6 +68,17 @@ public class SpacialRotationScript : MonoBehaviour
             isMouseButtonDown = false;
             isObjectHeld = false;
             UnlockCamera();
+        }
+
+        if (isMouseButtonDown)
+        {
+            // Disable PlayerMovement script
+            playerMovementScript.enabled = false;
+        }
+        else
+        {
+            // Enable PlayerMovement script
+            playerMovementScript.enabled = true;
         }
     }
 
