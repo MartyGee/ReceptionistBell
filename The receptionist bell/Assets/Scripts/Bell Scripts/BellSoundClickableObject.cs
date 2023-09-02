@@ -4,22 +4,19 @@ public class BellSoundClickableObject : MonoBehaviour
 {
     public AudioClip bellSound;
     public GameObject player;
-    //space
     public float thresholdDistance = 5f;
-    //space
+
     private Vector3 minBounds = new Vector3(7f, 1.529f, -7f);
     private Vector3 maxBounds = new Vector3(-7f, 1.529f, 7f);
-    private Vector3 originalPosition= new Vector3(0, 1.529f, 0);
-    //space
+    private Vector3 originalPosition = new Vector3(0, 1.529f, 0);
     private int counter = 0;
-    //space
     private Vector3 randomPosition;
     private Vector3 upsideDownPosition = new Vector3(0, 7.456f, 0);
-    //space
+
     public LadderAnimation ladderAnimationScript;
     public WallLadderAnimation wallLadderAnimationScript;
 
-    void Start()
+    private void Start()
     {
         originalPosition = transform.position;
 
@@ -30,7 +27,7 @@ public class BellSoundClickableObject : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -41,29 +38,34 @@ public class BellSoundClickableObject : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject)
                 {
-                    AudioSource.PlayClipAtPoint(bellSound, transform.position);
-                    counter++;
-
-                    if (counter == 7 | counter == 8 | counter == 9 ) 
-                    {
-                        TeleportToRandomPosition();
-                    }
-                    else if (counter == 10)
-                    {
-                        TeleportToUpsideDownPosition();
-                        ladderAnimationScript.LadderVoid();
-                        wallLadderAnimationScript.WallLadderVoid();
-                    }
-                    else if (counter == 11)
-                    {
-                        ResetToOriginalPosition();
-                    }
+                    RingBell();
                 }
             }
         }
     }
 
-    void TeleportToRandomPosition()
+    private void RingBell()
+    {
+        AudioSource.PlayClipAtPoint(bellSound, transform.position);
+        counter++;
+
+        if (counter == 7 || counter == 8 || counter == 9)
+        {
+            TeleportToRandomPosition();
+        }
+        else if (counter == 10)
+        {
+            TeleportToUpsideDownPosition();
+            ladderAnimationScript.LadderVoid();
+            wallLadderAnimationScript.WallLadderVoid();
+        }
+        else if (counter == 11)
+        {
+            ResetToOriginalPosition();
+        }
+    }
+
+    private void TeleportToRandomPosition()
     {
         randomPosition = new Vector3(
             Random.Range(minBounds.x, maxBounds.x),
@@ -73,17 +75,27 @@ public class BellSoundClickableObject : MonoBehaviour
         transform.position = randomPosition;
     }
 
-    void TeleportToUpsideDownPosition()
+    private void TeleportToUpsideDownPosition()
     {
         Quaternion upsideDownRotation = Quaternion.Euler(90, 90, -90);
         transform.rotation = upsideDownRotation;
         transform.position = upsideDownPosition;
     }
 
-    void ResetToOriginalPosition()
+    private void ResetToOriginalPosition()
     {
         Quaternion originalRotation = Quaternion.Euler(-90, 90, -90);
         transform.rotation = originalRotation;
         transform.position = originalPosition;
+    }
+
+    // Add a new method to detect collision with the object being moved
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("MovableObjectTag"))
+        {
+            // Ring the bell when a movable object collides with it
+            RingBell();
+        }
     }
 }
