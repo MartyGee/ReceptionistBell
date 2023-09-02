@@ -650,6 +650,39 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &104391048
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104391043}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1385787, y: 5.1413727, z: 10.94357}
+  m_Center: {x: 0, y: 0.06231582, z: 5.4493403}
+--- !u!114 &104391049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104391043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8cb9968445397429c6592e296b7fab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 870983835}
+  cameraScript: {fileID: 963194229}
+  isMouseOver: 0
+  isPickedUp: 0
+  isMouseButtonDown: 0
+  isRotating: 0
+  isObjectHeld: 0
+  isInteracting: 0
 --- !u!1 &109712251
 GameObject:
   m_ObjectHideFlags: 0
@@ -2223,7 +2256,7 @@ CharacterController:
   m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.5
+  m_StepOffset: 0.4
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
@@ -4572,8 +4605,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 870983835}
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
-  clickedColor: {r: 0, g: 0.14346027, b: 1, a: 1}
   cameraScript: {fileID: 963194229}
   isMouseOver: 0
   isPickedUp: 0
@@ -7403,8 +7434,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 870983835}
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
-  clickedColor: {r: 0, g: 0.14346027, b: 1, a: 1}
   cameraScript: {fileID: 963194229}
   isMouseOver: 0
   isPickedUp: 0
