@@ -2,16 +2,18 @@ using UnityEngine;
 
 public class InteractableStaticObject : MonoBehaviour
 {
-    public GameObject Instruction;
-    public GameObject ThisTrigger;
-    public AudioClip Sound;
-    public float interactionDistance = 5f; // Maximum interaction distance.
+    public GameObject instruction;
+    public GameObject thisTrigger;
+    public GameObject paperUiElement; // The new UI element to open or activate.
+    public AudioSource sound;
+    private float interactionDistance = 3f; // Maximum interaction distance.
 
     private bool actionInProgress = false;
 
     private void Start()
     {
-        Instruction.SetActive(false);
+        instruction.SetActive(false);
+        paperUiElement.SetActive(false); // Initially, keep the UI element deactivated.
     }
 
     private void Update()
@@ -20,7 +22,7 @@ public class InteractableStaticObject : MonoBehaviour
         bool canInteract = CanInteractWithObject();
 
         // Show or hide the instruction based on whether the player can interact
-        Instruction.SetActive(canInteract);
+        instruction.SetActive(canInteract);
 
         // Check for player input to interact with the object
         if (Input.GetKeyDown(KeyCode.E))
@@ -30,10 +32,12 @@ public class InteractableStaticObject : MonoBehaviour
                 if (!actionInProgress)
                 {
                     PerformAction(); // Perform the action when "E" is pressed.
+                    Time.timeScale = 0f;
                 }
                 else
                 {
                     EndAction(); // End the action when "E" is pressed again.
+                    Time.timeScale = 1f;
                 }
             }
         }
@@ -61,18 +65,17 @@ public class InteractableStaticObject : MonoBehaviour
     // Perform the action when "E" is pressed
     private void PerformAction()
     {
-        // Perform the action you want to execute when "E" is pressed.
-        // For example, you can play a sound or activate a UI element.
-        // Here, we're just marking the action as in progress.
         actionInProgress = true;
+        paperUiElement.SetActive(true); // Activate the new UI element.
+        Cursor.lockState = CursorLockMode.None;
+        sound.Play();
     }
 
     // End the action when "E" is pressed again
     private void EndAction()
     {
-        // End the action you previously started.
-        // For example, you can stop playing a sound or deactivate a UI element.
-        // Here, we're just marking the action as complete.
         actionInProgress = false;
+        paperUiElement.SetActive(false); // Deactivate the new UI element.
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

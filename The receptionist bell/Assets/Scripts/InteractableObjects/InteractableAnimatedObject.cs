@@ -15,7 +15,7 @@ public class InteractableAnimatedObject : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.transform.tag == "Player")
+        if (collision.transform.tag =="Player")
         {
             Instruction.SetActive(true);
             Action = true;
