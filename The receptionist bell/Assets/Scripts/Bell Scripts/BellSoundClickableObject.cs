@@ -8,6 +8,7 @@ public class BellSoundClickableObject : MonoBehaviour
     private float thresholdDistance = 3f;
 
     private int globalCounter = 0;
+
     private Vector3 originalPosition = new Vector3(0, 1.529f, 0);
     private Vector3 upsideDownPosition = new Vector3(0, 7.456f, 0);
     private Vector3 outsideTablePosition = new Vector3(20f, 20f, 20f);
