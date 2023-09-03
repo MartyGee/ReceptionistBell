@@ -7,18 +7,23 @@ public class BellSoundClickableObject : MonoBehaviour
     public GameObject objectPrefab; // Reference to the prefab you want to instantiate
     private float thresholdDistance = 3f;
 
-    private int counter = 0;
+    private int globalCounter = 0;
+    private Vector3 originalPosition = new Vector3(0, 1.529f, 0);
+    private Vector3 upsideDownPosition = new Vector3(0, 7.456f, 0);
+    private Vector3 outsideTablePosition = new Vector3(20f, 20f, 20f);
+    private Vector3 originalScale = new Vector3(2.5f, 2.5f, 2.5f);
+
+    private Vector3 randomPosition;
     private Vector3 minBounds = new Vector3(7f, 1.529f, -7f);
     private Vector3 maxBounds = new Vector3(-7f, 1.529f, 7f);
-    private Vector3 originalPosition = new Vector3(0, 1.529f, 0);
-    private Vector3 randomPosition;
-    private Vector3 upsideDownPosition = new Vector3(0, 7.456f, 0);
+
     private Vector3 paperPosition = new Vector3(0, 0.509f, 0);
-    private Vector3 newTablePosition = new Vector3(20f, 20f, 20f);
 
     [Header("Animations to play")]
     public LadderAnimation ladderAnimationScript;
     public WallLadderAnimation wallLadderAnimationScript;
+
+    private bool isObjectActivated = false; // Track if the object is activated
 
     private void Start()
     {
@@ -51,24 +56,39 @@ public class BellSoundClickableObject : MonoBehaviour
     private void RingBell()
     {
         AudioSource.PlayClipAtPoint(bellSound, transform.position);
-        counter++;
+        globalCounter++;
 
-        if (counter == 7 || counter == 8 || counter == 9)
+        if (globalCounter == 7 || globalCounter == 8 || globalCounter == 9)
         {
             TeleportToRandomPosition();
         }
-        else if (counter == 10)
+        else if (globalCounter == 10)
         {
             TeleportToUpsideDownPosition();
             ladderAnimationScript.LadderVoid();
             wallLadderAnimationScript.WallLadderVoid();
         }
-        else if (counter == 11)
+        else if (globalCounter == 11)
         {
-            // Spawn the object prefab at the original position with a specific rotation
-            spawnObject();
+            if (!isObjectActivated)
+            {
+                // Activate the object (e.g., enable it)
+                objectPrefab.SetActive(true);
+                isObjectActivated = true;
+            }
             TeleportToOutsidePosition();
             ResetToOriginalRotation();
+        }
+        else if (globalCounter == 12)
+        {
+            if (isObjectActivated)
+            {
+                // Deactivate the object (e.g., disable it)
+                objectPrefab.SetActive(false);
+                isObjectActivated = false;
+            }
+            ResetToOriginalPosition();
+            ResetToOriginalScale();
         }
     }
 
@@ -104,20 +124,12 @@ public class BellSoundClickableObject : MonoBehaviour
 
     private void TeleportToOutsidePosition()
     {
-        transform.position = newTablePosition;
+        transform.position = outsideTablePosition;
     }
 
-    private void spawnObject()
+    private void ResetToOriginalScale()
     {
-        // Create a Quaternion representing the desired rotation (e.g., 90 degrees around the X-axis)
-        Quaternion paperRotation = Quaternion.Euler(-90, 180, 0);
-
-        // Instantiate the object prefab at the paperPosition with the desired rotation
-        Instantiate(objectPrefab, paperPosition, paperRotation);
-
-        // Optionally, you can do something with the spawned object, such as setting its properties or adding it to a list.
-        // For example, you can access its components like this:
-        // MyComponentType component = spawnedObject.GetComponent<MyComponentType>();
+        transform.localScale = originalScale;
     }
 
     // Add a new method to detect collision with the object being moved
