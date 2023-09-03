@@ -113,4 +113,6 @@ MonoBehaviour:
   instruction: {fileID: 0}
   thisTrigger: {fileID: 2181934372909302405}
   paperUiElement: {fileID: 0}
-  sound: {fileID: 8300000, guid: 5f5938a43c30004428831671a5f93655, type: 3}
+  sound: {fileID: 0}
+  mouseLookScript: {fileID: 0}
+  characterController: {fileID: 0}

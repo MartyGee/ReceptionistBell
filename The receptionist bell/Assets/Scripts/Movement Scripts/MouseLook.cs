@@ -4,17 +4,21 @@ public class MouseLook : MonoBehaviour
 {
     public float mouseSensitivity = 0f;
     public Transform playerBody;
-    float xRotation = 0f;
+    private float xRotation = 0f;
 
-    // Start is called before the first frame update
+    private bool cameraActive = true; // Add a boolean flag to control camera activity.
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (!cameraActive)
+        {
+            return; // If the camera is not active, do not process mouse input.
+        }
 
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
@@ -24,5 +28,11 @@ public class MouseLook : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
+    }
+
+    // Add a method to toggle camera activity externally.
+    public void ToggleCameraActivity(bool active)
+    {
+        cameraActive = active;
     }
 }

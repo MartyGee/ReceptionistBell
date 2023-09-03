@@ -6,39 +6,42 @@ public class InteractableStaticObject : MonoBehaviour
     public GameObject thisTrigger;
     public GameObject paperUiElement; // The new UI element to open or activate.
     public AudioSource sound;
-    private float interactionDistance = 3f; // Maximum interaction distance.
+    public MouseLook mouseLookScript; // Reference to the MouseLook script.
+    public CharacterController characterController; // Reference to the CharacterController.
 
-    private bool actionInProgress = false;
+    private float interactionDistance = 3f; // Maximum interaction distance.
+    private bool isOpen = false; // Track if the object is open.
 
     private void Start()
     {
         instruction.SetActive(false);
         paperUiElement.SetActive(false); // Initially, keep the UI element deactivated.
+        LockCursor();
     }
 
     private void Update()
     {
-        // Check if the player is looking at the object and within the interaction distance
-        bool canInteract = CanInteractWithObject();
-
-        // Show or hide the instruction based on whether the player can interact
-        instruction.SetActive(canInteract);
-
-        // Check for player input to interact with the object
-        if (Input.GetKeyDown(KeyCode.E))
+        if (!isOpen)
         {
-            if (canInteract)
+            // First phase: The player needs to be looking at the object to open it.
+            // Check if the player is looking at the object and within the interaction distance
+            bool canInteract = CanInteractWithObject();
+
+            // Show or hide the instruction based on whether the player can interact
+            instruction.SetActive(canInteract);
+
+            // Check for player input to interact with the object
+            if (Input.GetKeyDown(KeyCode.E) && canInteract)
             {
-                if (!actionInProgress)
-                {
-                    PerformAction(); // Perform the action when "E" is pressed.
-                    Time.timeScale = 0f;
-                }
-                else
-                {
-                    EndAction(); // End the action when "E" is pressed again.
-                    Time.timeScale = 1f;
-                }
+                PerformAction(); // Perform the action when "E" is pressed.
+            }
+        }
+        else
+        {
+            // Second phase: The player can close the object by pressing "E" regardless of where they are looking.
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                EndAction(); // End the action when "E" is pressed.
             }
         }
     }
@@ -65,17 +68,45 @@ public class InteractableStaticObject : MonoBehaviour
     // Perform the action when "E" is pressed
     private void PerformAction()
     {
-        actionInProgress = true;
+        isOpen = true;
         paperUiElement.SetActive(true); // Activate the new UI element.
-        Cursor.lockState = CursorLockMode.None;
+        UnlockCursor();
         sound.Play();
+
+        // Block camera control.
+        mouseLookScript.ToggleCameraActivity(false);
+        // Disable character movement.
+        characterController.enabled = false;
     }
 
     // End the action when "E" is pressed again
     private void EndAction()
     {
-        actionInProgress = false;
+        isOpen = false;
         paperUiElement.SetActive(false); // Deactivate the new UI element.
+        LockCursor();
+
+        // Unblock camera control.
+        mouseLookScript.ToggleCameraActivity(true);
+        // Enable character movement.
+        characterController.enabled = true;
+    }
+
+    // Lock the cursor
+    private void LockCursor()
+    {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false; // Make the cursor invisible.
+    }
+
+    // Unlock the cursor
+    private void UnlockCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true; // Make the cursor visible.
     }
 }
+
+
+
+
