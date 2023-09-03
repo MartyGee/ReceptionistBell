@@ -3790,6 +3790,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 925055279}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1763143554}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &925055277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3840,11 +3864,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcdb160c63d4e6442adba86929d06678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToManipulate: {fileID: 1959296783}
+  objectToManipulate: {fileID: 367865291685331091}
   manipulateButton: {fileID: 925055276}
-  desiredPosition: {x: 0, y: 0, z: 0}
-  desiredRotation: {x: 0, y: 0, z: 0}
-  desiredScale: {x: 5, y: 5, z: 5}
+  desiredPosition: {x: -6.21, y: 2.1739, z: 8.653}
+  desiredRotation: {x: -90, y: 90, z: -90}
+  desiredScale: {x: 0.7, y: 0.7, z: 0.7}
 --- !u!1 &932709134
 GameObject:
   m_ObjectHideFlags: 0
@@ -6283,6 +6307,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_cabinet
       objectReference: {fileID: 0}
+    - target: {fileID: 2731465206210111506, guid: 4995dd91264436a49863978e55f96784, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3360755759113466536, guid: 4995dd91264436a49863978e55f96784, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -8276,6 +8304,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760676147}
   m_CullTransparentMesh: 1
+--- !u!1 &1763143554 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2731465206210111506, guid: 4995dd91264436a49863978e55f96784, type: 3}
+  m_PrefabInstance: {fileID: 1371792707}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1768921113
 GameObject:
   m_ObjectHideFlags: 0
@@ -9933,11 +9966,6 @@ MonoBehaviour:
   isRotating: 0
   isObjectHeld: 0
   isInteracting: 0
---- !u!4 &1959296783 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 203e4f42ad04534468508d41d76cf506, type: 3}
-  m_PrefabInstance: {fileID: 1959296767}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1960824939
 GameObject:
   m_ObjectHideFlags: 0
