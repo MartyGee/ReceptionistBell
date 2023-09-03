@@ -8,6 +8,8 @@ public class InteractableAnimatedObject : MonoBehaviour
     public AudioSource Sound;
     public bool Action = false;
 
+    public GameObject objectToDestroy;
+
     void Start()
     {
         Instruction.SetActive(false);
@@ -15,7 +17,7 @@ public class InteractableAnimatedObject : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.transform.tag =="Player")
+        if (collision.transform.CompareTag("Player"))  // Use CompareTag for efficiency
         {
             Instruction.SetActive(true);
             Action = true;
@@ -28,20 +30,25 @@ public class InteractableAnimatedObject : MonoBehaviour
         Action = false;
     }
 
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Action == true)
+            if (Action)
             {
                 Instruction.SetActive(false);
                 AnimeObject.GetComponent<Animator>().Play("DoorAnim");
                 ThisTrigger.SetActive(false);
                 Sound.Play();
+
+                // Check if objectToDestroy is not null before attempting to destroy it
+                if (objectToDestroy != null)
+                {
+                    Destroy(objectToDestroy);
+                }
+
                 Action = false;
             }
         }
-
     }
 }
