@@ -13,6 +13,7 @@ public class BellSoundClickableObject : MonoBehaviour
     private int counter = 0;
     private Vector3 randomPosition;
     private Vector3 upsideDownPosition = new Vector3(0, 7.456f, 0);
+    private Vector3 paperPosition = new Vector3(0, 0.509f, 0);
 
     public LadderAnimation ladderAnimationScript;
     public WallLadderAnimation wallLadderAnimationScript;
@@ -62,7 +63,7 @@ public class BellSoundClickableObject : MonoBehaviour
         }
         else if (counter == 11)
         {
-            // Spawn the object prefab at the original position
+            // Spawn the object prefab at the original position with a specific rotation
             spawnObject();
             //ResetToOriginalPosition();
         }
@@ -94,8 +95,15 @@ public class BellSoundClickableObject : MonoBehaviour
 
     private void spawnObject()
     {
-        // Instantiate the object prefab at the original position
-        Instantiate(objectPrefab, originalPosition, Quaternion.identity);
+        // Create a Quaternion representing the desired rotation (e.g., 90 degrees around the X-axis)
+        Quaternion paperRotation = Quaternion.Euler(-90, 180, 0);
+
+        // Instantiate the object prefab at the paperPosition with the desired rotation
+        Instantiate(objectPrefab, paperPosition, paperRotation);
+
+        // Optionally, you can do something with the spawned object, such as setting its properties or adding it to a list.
+        // For example, you can access its components like this:
+        // MyComponentType component = spawnedObject.GetComponent<MyComponentType>();
     }
 
     // Add a new method to detect collision with the object being moved
@@ -108,3 +116,4 @@ public class BellSoundClickableObject : MonoBehaviour
         }
     }
 }
+
