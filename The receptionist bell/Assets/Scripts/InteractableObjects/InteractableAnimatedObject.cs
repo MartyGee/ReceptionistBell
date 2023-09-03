@@ -1,17 +1,16 @@
 using UnityEngine;
 
-public class TestInteractableObject : MonoBehaviour
+public class InteractableAnimatedObject : MonoBehaviour
 {
     public GameObject Instruction;
     public GameObject AnimeObject;
     public GameObject ThisTrigger;
-    public AudioSource DoorOpenSound;
+    public AudioSource Sound;
     public bool Action = false;
 
     void Start()
     {
         Instruction.SetActive(false);
-
     }
 
     void OnTriggerEnter(Collider collision)
@@ -39,7 +38,7 @@ public class TestInteractableObject : MonoBehaviour
                 Instruction.SetActive(false);
                 AnimeObject.GetComponent<Animator>().Play("DoorAnim");
                 ThisTrigger.SetActive(false);
-                DoorOpenSound.Play();
+                Sound.Play();
                 Action = false;
             }
         }
