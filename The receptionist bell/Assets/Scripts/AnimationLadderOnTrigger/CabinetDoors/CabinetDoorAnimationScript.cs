@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class CabinetDoor02AnimationScript : MonoBehaviour
+public class CabinetDoorAnimationScript : MonoBehaviour
 {
-    public Animator animator02; // Reference to the Animator component that plays the animation
+    public Animator animator01; // Reference to the Animator component that plays the animation
+    public Animator animator02;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -10,6 +11,7 @@ public class CabinetDoor02AnimationScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Trigger the animation by setting the "IsOpen" trigger in the Animator
+            animator01.SetTrigger("IsOpen01");
             animator02.SetTrigger("IsOpen02");
         }
     }

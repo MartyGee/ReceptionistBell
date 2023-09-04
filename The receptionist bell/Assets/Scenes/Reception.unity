@@ -3307,7 +3307,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &622679256
 GameObject:
@@ -4599,19 +4599,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &868647515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 868647500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ec4452531dbb6547aaf8e15aa5a6a8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator02: {fileID: 868647505}
 --- !u!1 &870983835
 GameObject:
   m_ObjectHideFlags: 0
@@ -5232,19 +5219,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &957861381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 957861369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 084ec16279540be41881efe0afb8f620, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator01: {fileID: 957861379}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -7817,11 +7791,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2731465206210111506, guid: 4995dd91264436a49863978e55f96784, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3360755759113466536, guid: 4995dd91264436a49863978e55f96784, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3360755759113466536, guid: 4995dd91264436a49863978e55f96784, type: 3}
       propertyPath: m_LocalScale.x
@@ -12475,7 +12449,6 @@ GameObject:
   - component: {fileID: 2088209282}
   - component: {fileID: 2088209280}
   - component: {fileID: 2088209284}
-  - component: {fileID: 2088209285}
   m_Layer: 0
   m_Name: CabinetTrigger
   m_TagString: Untagged
@@ -12532,18 +12505,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator01: {fileID: 957861379}
---- !u!114 &2088209285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088209279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ec4452531dbb6547aaf8e15aa5a6a8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   animator02: {fileID: 868647505}
 --- !u!1 &2088260084
 GameObject:
