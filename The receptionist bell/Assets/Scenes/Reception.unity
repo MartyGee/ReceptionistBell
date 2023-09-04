@@ -4589,7 +4589,7 @@ Animator:
   m_GameObject: {fileID: 868647500}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e982e4b0dfb59574ebe6be7542101646, type: 2}
+  m_Controller: {fileID: 9100000, guid: f3419ab675c4f284b8a79e19f4de9fa9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4599,7 +4599,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &868647510
+--- !u!114 &868647515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4608,10 +4608,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 868647500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 084ec16279540be41881efe0afb8f620, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ec4452531dbb6547aaf8e15aa5a6a8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 868647505}
+  animator02: {fileID: 868647505}
 --- !u!1 &870983835
 GameObject:
   m_ObjectHideFlags: 0
@@ -5212,19 +5212,39 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8176682599046558721, guid: 4995dd91264436a49863978e55f96784, type: 3}
   m_PrefabInstance: {fileID: 1371792707}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &957861373
-BoxCollider:
+--- !u!95 &957861379
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957861369}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.40590346, y: 0.9209688, z: 0.033278674}
-  m_Center: {x: -0.19787925, y: 0.000000074505806, z: 0.0013549807}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c26111e0408c9fa409e926992a006bb8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &957861381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957861369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 084ec16279540be41881efe0afb8f620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator01: {fileID: 957861379}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -7797,7 +7817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2731465206210111506, guid: 4995dd91264436a49863978e55f96784, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3360755759113466536, guid: 4995dd91264436a49863978e55f96784, type: 3}
       propertyPath: m_RootOrder
@@ -12455,6 +12475,7 @@ GameObject:
   - component: {fileID: 2088209282}
   - component: {fileID: 2088209280}
   - component: {fileID: 2088209284}
+  - component: {fileID: 2088209285}
   m_Layer: 0
   m_Name: CabinetTrigger
   m_TagString: Untagged
@@ -12510,7 +12531,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 084ec16279540be41881efe0afb8f620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 868647505}
+  animator01: {fileID: 957861379}
+--- !u!114 &2088209285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088209279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec4452531dbb6547aaf8e15aa5a6a8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator02: {fileID: 868647505}
 --- !u!1 &2088260084
 GameObject:
   m_ObjectHideFlags: 0
