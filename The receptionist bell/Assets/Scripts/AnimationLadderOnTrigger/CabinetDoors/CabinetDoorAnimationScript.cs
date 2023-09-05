@@ -1,10 +1,12 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class CabinetDoorAnimationScript : MonoBehaviour
 {
     public Animator animator01; // Reference to the Animator component that plays the animation
     public Animator animator02;
     public AudioSource audioSource; // Reference to the AudioSource component for playing the sound
+    public List<GameObject> objectsToDeactivate; // List of objects to deactivate
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,6 +21,12 @@ public class CabinetDoorAnimationScript : MonoBehaviour
             if (audioSource != null)
             {
                 audioSource.Play();
+            }
+
+            // Deactivate the specified objects
+            foreach (GameObject obj in objectsToDeactivate)
+            {
+                obj.SetActive(false);
             }
         }
     }
