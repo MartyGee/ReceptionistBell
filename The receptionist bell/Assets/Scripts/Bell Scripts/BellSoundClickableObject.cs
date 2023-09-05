@@ -20,7 +20,7 @@ public class BellSoundClickableObject : MonoBehaviour
 
     private Vector3 paperPosition = new Vector3(0, 0.509f, 0);
 
-    [Header("Animations to play")]
+    [Header("Animations to play on counter 10")]
     public LadderAnimation ladderAnimationScript;
     public WallLadderAnimation wallLadderAnimationScript;
 
