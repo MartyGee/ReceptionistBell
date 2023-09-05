@@ -82,12 +82,6 @@ public class BellSoundClickableObject : MonoBehaviour
         }
         else if (globalCounter == 12)
         {
-            if (isObjectActivated)
-            {
-                // Deactivate the object (e.g., disable it)
-                objectPrefab.SetActive(false);
-                isObjectActivated = false;
-            }
             ResetToOriginalPosition();
             ResetToOriginalScale();
         }

@@ -3,10 +3,13 @@ using System.Collections.Generic;
 
 public class CabinetLockedText : MonoBehaviour
 {
+    public List<GameObject> objectsToDeactivate; // List of objects to deactivate when "E" is pressed.
+
     public GameObject instruction1;
     public GameObject instruction2; // The new UI element to open or activate.
-    public List<GameObject> objectsToActivate; // List of objects to activate.
     public AudioClip sound;
+    public Animator animator1; // Reference to the first Animator component
+    public Animator animator2; // Reference to the second Animator component
 
     private float interactionDistance = 3f; // Maximum interaction distance.
     private bool isOpen = false; // Track if the object is open;
@@ -36,14 +39,6 @@ public class CabinetLockedText : MonoBehaviour
                 PerformAction(); // Perform the action when "E" is pressed.
             }
         }
-        /*else
-        {
-            // Second phase: The player can close the object by pressing "E" regardless of where they are looking.
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                EndAction(); // End the action when "E" is pressed.
-            }
-        }*/
     }
 
     private void FixedUpdate()
@@ -77,7 +72,6 @@ public class CabinetLockedText : MonoBehaviour
         return false; // Player is not looking at the object or is too far away.
     }
 
-    // Perform the action when "E" is pressed
     private void PerformAction()
     {
         isOpen = true;
@@ -86,13 +80,26 @@ public class CabinetLockedText : MonoBehaviour
         LockCursor(); // Lock the cursor when the action starts.
         AudioSource.PlayClipAtPoint(sound, transform.position);
 
-        // Activate all objects in the list.
-        foreach (GameObject obj in objectsToActivate)
+        // Trigger animations if Animator components are available
+        if (animator1 != null)
         {
-            if (obj != null)
-            {
-                obj.SetActive(true);
-            }
+            animator1.SetTrigger("IsActive");
+        }
+        if (animator2 != null)
+        {
+            animator2.SetTrigger("IsActive1");
+        }
+
+        // Deactivate a list of objects (add more if needed)
+        DeactivateObjects();
+    }
+
+    // Add this method to deactivate a list of objects
+    private void DeactivateObjects()
+    {
+        foreach (var obj in objectsToDeactivate)
+        {
+            obj.SetActive(false);
         }
     }
 
@@ -102,15 +109,6 @@ public class CabinetLockedText : MonoBehaviour
         isOpen = false;
         instruction2.SetActive(false); // Deactivate instruction2.
         LockCursor(); // Lock the cursor when the action ends.
-
-        // Deactivate all objects in the list.
-        foreach (GameObject obj in objectsToActivate)
-        {
-            if (obj != null)
-            {
-                obj.SetActive(false);
-            }
-        }
     }
 
     // Lock the cursor
@@ -120,7 +118,4 @@ public class CabinetLockedText : MonoBehaviour
         Cursor.visible = false; // Make the cursor invisible.
     }
 }
-
-
-
 
