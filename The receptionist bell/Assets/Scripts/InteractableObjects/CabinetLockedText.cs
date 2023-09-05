@@ -6,7 +6,7 @@ public class CabinetLockedText : MonoBehaviour
     public GameObject instruction1;
     public GameObject instruction2; // The new UI element to open or activate.
     public List<GameObject> objectsToActivate; // List of objects to activate.
-    public AudioSource sound;
+    public AudioClip sound;
 
     private float interactionDistance = 3f; // Maximum interaction distance.
     private bool isOpen = false; // Track if the object is open;
@@ -84,7 +84,7 @@ public class CabinetLockedText : MonoBehaviour
         instruction1.SetActive(false); // Deactivate instruction1.
         instruction2.SetActive(true); // Activate instruction2.
         LockCursor(); // Lock the cursor when the action starts.
-        sound.Play();
+        AudioSource.PlayClipAtPoint(sound, transform.position);
 
         // Activate all objects in the list.
         foreach (GameObject obj in objectsToActivate)
