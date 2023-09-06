@@ -12,19 +12,26 @@ public class CabinetLockedText : MonoBehaviour
     public Animator animator2; // Reference to the second Animator component
 
     private float interactionDistance = 3f; // Maximum interaction distance.
-    private bool isOpen = false; // Track if the object is open;
     private bool isLookingAtObject = false; // Track if the player is looking at the object.
+
+    private bool hasInteracted = false; // Track if the interaction has occurred.
 
     private void Start()
     {
         instruction1.SetActive(false);
-        instruction2.SetActive(false); // Initially, keep the UI element deactivated.
+        instruction2.SetActive(false);
         LockCursor();
     }
 
     private void Update()
     {
-        if (!isOpen)
+        // Check if the interaction should be reset
+        if (hasInteracted && !isLookingAtObject)
+        {
+            hasInteracted = false;
+        }
+
+        if (!hasInteracted)
         {
             // First phase: The player needs to be looking at the object to open it.
             // Check if the player is looking at the object and within the interaction distance
@@ -46,8 +53,8 @@ public class CabinetLockedText : MonoBehaviour
         // Continuously check if the player is looking at the object.
         isLookingAtObject = CanInteractWithObject();
 
-        // If the object is open and the player is not looking at it, hide instruction2.
-        if (isOpen && !isLookingAtObject)
+        // If the player is not looking at it and the interaction has occurred, hide instruction2.
+        if (!isLookingAtObject && hasInteracted)
         {
             instruction2.SetActive(false);
         }
@@ -74,7 +81,7 @@ public class CabinetLockedText : MonoBehaviour
 
     private void PerformAction()
     {
-        isOpen = true;
+        hasInteracted = true;
         instruction1.SetActive(false); // Deactivate instruction1.
         instruction2.SetActive(true); // Activate instruction2.
         LockCursor(); // Lock the cursor when the action starts.
@@ -103,14 +110,6 @@ public class CabinetLockedText : MonoBehaviour
         }
     }
 
-    // End the action when "E" is pressed again
-    private void EndAction()
-    {
-        isOpen = false;
-        instruction2.SetActive(false); // Deactivate instruction2.
-        LockCursor(); // Lock the cursor when the action ends.
-    }
-
     // Lock the cursor
     private void LockCursor()
     {
@@ -118,4 +117,3 @@ public class CabinetLockedText : MonoBehaviour
         Cursor.visible = false; // Make the cursor invisible.
     }
 }
-
