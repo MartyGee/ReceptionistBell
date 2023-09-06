@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.Events;
+using System.Collections.Generic;
 
 public class RightDrawer : MonoBehaviour
 {
@@ -11,16 +11,13 @@ public class RightDrawer : MonoBehaviour
     private bool isOpen = false; // Track if the drawer is open.
     private bool isLookingAtObject = false;
 
-    // Create a Unity event to be triggered when the animation finishes.
-    public UnityEvent onAnimationFinished;
+    // Lists to store objects for activation and deactivation.
+    public List<GameObject> objectsToActivate;
+    public List<GameObject> objectsToDeactivate;
 
     private void Start()
     {
         instruction1.SetActive(false);
-        LockCursor();
-
-        // Subscribe to the Unity event with a function to activate instruction1.
-        onAnimationFinished.AddListener(ActivateInstruction1);
     }
 
     private void Update()
@@ -37,11 +34,15 @@ public class RightDrawer : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 // Toggle the isOpen flag and set the Animator parameter accordingly.
-                isOpen = !isOpen;
-                animator.SetBool("IsOpen", isOpen);
+                animator.SetTrigger("IsOpen");
 
-                LockCursor();
                 AudioSource.PlayClipAtPoint(sound, transform.position);
+
+                // Activate objects from the list.
+                ActivateObjects(objectsToActivate);
+
+                // Deactivate objects from the list.
+                DeactivateObjects(objectsToDeactivate);
             }
         }
         else
@@ -66,19 +67,23 @@ public class RightDrawer : MonoBehaviour
         return false;
     }
 
-    // Function to activate instruction1 when the animation finishes.
-    private void ActivateInstruction1()
+    // Function to activate objects.
+    private void ActivateObjects(List<GameObject> objects)
     {
-        instruction1.SetActive(true);
+        foreach (var obj in objects)
+        {
+            obj.SetActive(true);
+        }
+        objects.Clear();
     }
 
-    private void LockCursor()
+    // Function to deactivate objects.
+    private void DeactivateObjects(List<GameObject> objects)
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        foreach (var obj in objects)
+        {
+            obj.SetActive(false);
+        }
+        objects.Clear();
     }
 }
-
-
-
-
