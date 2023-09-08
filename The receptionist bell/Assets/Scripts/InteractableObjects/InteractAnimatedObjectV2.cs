@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class RightDrawer : MonoBehaviour
+public class InteractAnimatedObjectV2 : MonoBehaviour
 {
-    public GameObject instruction1;
+    public GameObject instruction;
     public AudioClip sound;
     public Animator animator;
 
@@ -17,7 +17,7 @@ public class RightDrawer : MonoBehaviour
 
     private void Start()
     {
-        instruction1.SetActive(false);
+        instruction.SetActive(false);
     }
 
     private void Update()
@@ -28,7 +28,7 @@ public class RightDrawer : MonoBehaviour
         // If the player is looking at the object, show instruction1.
         if (isLookingAtObject)
         {
-            instruction1.SetActive(true);
+            instruction.SetActive(true);
 
             // Check for player input to interact with the object
             if (Input.GetKeyDown(KeyCode.E))
@@ -47,7 +47,7 @@ public class RightDrawer : MonoBehaviour
         }
         else
         {
-            instruction1.SetActive(false);
+            instruction.SetActive(false);
         }
     }
 
