@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4870937547169612232}
   - component: {fileID: 1309209820693396773}
   - component: {fileID: 2140280765671931652}
-  - component: {fileID: 3866847084327584600}
+  - component: {fileID: 7575542662782010703}
   m_Layer: 0
   m_Name: PaperSmooth
   m_TagString: Untagged
@@ -98,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.020079536, y: 0.019049473, z: 0.0012430388}
   m_Center: {x: -0.000002754853, y: -0.000049386636, z: -0.00008475129}
---- !u!114 &3866847084327584600
+--- !u!114 &7575542662782010703
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,8 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72507e1d496bf664d8458bb0787c07fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectsToActivate: []
+  objectsToDeactivate: []
   instruction: {fileID: 0}
-  thisTrigger: {fileID: 2181934372909302405}
+  thisTrigger: {fileID: 0}
   paperUiElement: {fileID: 0}
   sound: {fileID: 0}
   mouseLookScript: {fileID: 0}
