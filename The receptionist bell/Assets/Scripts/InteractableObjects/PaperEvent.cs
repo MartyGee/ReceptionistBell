@@ -1,7 +1,11 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-public class InteractableStaticObject : MonoBehaviour
+public class PaperEvent : MonoBehaviour
 {
+    public List<GameObject> objectsToActivate = new List<GameObject>();
+    public List<GameObject> objectsToDeactivate = new List<GameObject>();
+    public List<GameObject> objectsToDestroy = new List<GameObject>(); // List for objects to destroy.
     public GameObject instruction;
     public GameObject thisTrigger;
     public GameObject paperUiElement; // The new UI element to open or activate.
@@ -11,6 +15,7 @@ public class InteractableStaticObject : MonoBehaviour
 
     private float interactionDistance = 3f; // Maximum interaction distance.
     private bool isOpen = false; // Track if the object is open.
+    private bool objectsActivated = false; // Track if objects have been activated.
 
     private void Start()
     {
@@ -33,7 +38,10 @@ public class InteractableStaticObject : MonoBehaviour
             // Check for player input to interact with the object
             if (Input.GetKeyDown(KeyCode.E) && canInteract)
             {
-                PerformAction(); // Perform the action when "E" is pressed.
+                if (!objectsActivated) // Check if objects are not already activated
+                {
+                    PerformAction(); // Perform the action when "E" is pressed.
+                }
             }
         }
         else
@@ -77,6 +85,26 @@ public class InteractableStaticObject : MonoBehaviour
         mouseLookScript.ToggleCameraActivity(false);
         // Disable character movement.
         characterController.enabled = false;
+
+        // Activate objects in the list
+        foreach (var obj in objectsToActivate)
+        {
+            obj.SetActive(true);
+        }
+
+        // Deactivate objects in the list
+        foreach (var obj in objectsToDeactivate)
+        {
+            obj.SetActive(false);
+        }
+
+        // Destroy objects in the list
+        foreach (var obj in objectsToDestroy)
+        {
+            Destroy(obj);
+        }
+
+        objectsActivated = true; // Set objectsActivated to true.
     }
 
     // End the action when "E" is pressed again
