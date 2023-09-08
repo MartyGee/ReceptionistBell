@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - MovableObjectTag
+  - B
+  - E
+  - L
+  - W
+  - O
   layers:
   - Default
   - TransparentFX
