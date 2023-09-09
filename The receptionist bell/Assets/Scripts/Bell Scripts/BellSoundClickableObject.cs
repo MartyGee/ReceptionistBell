@@ -82,7 +82,7 @@ public class BellSoundClickableObject : MonoBehaviour
         }
         else if (globalCounter == 12)
         {
-            ResetToOriginalPosition();
+            TeleportToOutsidePosition();
             ResetToOriginalScale();
         }
     }
