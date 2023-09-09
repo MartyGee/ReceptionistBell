@@ -11493,7 +11493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee672bf9f2f181d439edf585fcc82a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 606053976}
+  bellSound: {fileID: 8300000, guid: 7abe48209ec83d94991d366a7947d0ff, type: 3}
 --- !u!1 &1153088306
 GameObject:
   m_ObjectHideFlags: 0
