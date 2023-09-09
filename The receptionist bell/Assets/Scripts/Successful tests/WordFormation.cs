@@ -3,79 +3,35 @@ using System.Collections.Generic;
 
 public class WordFormation : MonoBehaviour
 {
-    public AudioSource sound; // Audio source to play when "BELL" is formed
-    private List<string> currentWord = new List<string>();
-    private string targetWord = "BELL"; // The target word to form
+    public AudioSource audioSource; // Assign the AudioSource for playing the sound in the Inspector
 
-    private int currentColliderIndex = 0; // Index of the current collider (starts at 0)
+    private Dictionary<string, int> letterValues = new Dictionary<string, int>
+    {
+        { "B", 1 },
+        { "E", 2 },
+        { "L", 3 }
+    };
+
+    private int targetSum = 9; // The target sum for the word "BELL"
+    private int currentSum = 0; // Stores the current sum of assigned numbers
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("E") || other.CompareTag("B") || other.CompareTag("L"))
+        // Check if the entering object has a tag mapped in the dictionary
+        if (letterValues.ContainsKey(other.tag))
         {
-            // Check if the collider entered is the next expected collider in the sequence
-            if (ColliderMatchesExpected(other))
-            {
-                currentWord.Add(other.tag);
-                currentColliderIndex++;
-                CheckWordFormation();
-            }
-            else
-            {
-                // Reset if an incorrect collider is entered
-                ResetWordFormation();
-            }
+            currentSum += letterValues[other.tag];
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("E") || other.CompareTag("B") || other.CompareTag("L"))
+        // Check if the current sum matches the target sum
+        if (currentSum == targetSum)
         {
-            currentWord.Remove(other.tag);
-            currentColliderIndex--;
-        }
-    }
-
-    private bool ColliderMatchesExpected(Collider collider)
-    {
-        // Check if the entered collider matches the expected collider in the sequence
-        switch (currentColliderIndex)
-        {
-            case 0:
-                return collider.CompareTag("B");
-            case 1:
-                return collider.CompareTag("E");
-            case 2:
-                return collider.CompareTag("L");
-            case 3:
-                return collider.CompareTag("L");
-            default:
-                return false;
-        }
-    }
-
-    private void CheckWordFormation()
-    {
-        // Check if the word is fully formed (all letters in order)
-        if (currentWord.Count == targetWord.Length)
-        {
-            string formedWord = string.Join("", currentWord);
-            if (formedWord == targetWord)
+            Debug.Log("Word 'BELL' has been formed!");
+            // Play the sound when the word is formed
+            if (audioSource != null && !audioSource.isPlaying)
             {
-                sound.Play();
-                Debug.Log("Word 'BELL' Formed!");
-            }
-            else
-            {
-                Debug.Log("Word Formed: " + formedWord);
+                audioSource.Play();
             }
         }
-    }
-
-    private void ResetWordFormation()
-    {
-        currentWord.Clear();
-        currentColliderIndex = 0;
     }
 }
