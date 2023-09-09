@@ -1,15 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class CabinetLockedText : MonoBehaviour
+public class LockedFurniture : MonoBehaviour
 {
     public List<GameObject> objectsToDeactivate; // List of objects to deactivate when "E" is pressed.
 
     public GameObject instruction1;
     public GameObject instruction2; // The new UI element to open or activate.
     public AudioClip sound;
-    public Animator animator1; // Reference to the first Animator component
-    public Animator animator2; // Reference to the second Animator component
 
     private float interactionDistance = 3f; // Maximum interaction distance.
     private bool isLookingAtObject = false; // Track if the player is looking at the object.
@@ -86,16 +84,6 @@ public class CabinetLockedText : MonoBehaviour
         instruction2.SetActive(true); // Activate instruction2.
         LockCursor(); // Lock the cursor when the action starts.
         AudioSource.PlayClipAtPoint(sound, transform.position);
-
-        // Trigger animations if Animator components are available
-        if (animator1 != null)
-        {
-            animator1.SetTrigger("IsActive");
-        }
-        if (animator2 != null)
-        {
-            animator2.SetTrigger("IsActive1");
-        }
 
         // Deactivate a list of objects (add more if needed)
         DeactivateObjects();
