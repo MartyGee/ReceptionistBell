@@ -10,6 +10,7 @@ TagManager:
   - L
   - W
   - O
+  - RustKey
   layers:
   - Default
   - TransparentFX

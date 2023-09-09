@@ -11,7 +11,7 @@ public class CabinetDoorAnimationScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Check if the object entering the trigger has a specific tag (e.g., "Player")
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("RustKey"))
         {
             // Trigger the animation by setting the "IsOpen" trigger in the Animator
             animator01.SetTrigger("IsOpen01");
