@@ -27,6 +27,12 @@ public class PickUpScript : MonoBehaviour
 
     void Update()
     {
+        // Deactivate PickupPoint if not looking at any object with PickupMask
+        if (!IsInRange)
+        {
+            PickupPoint.gameObject.SetActive(false);
+        }
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (CurrentObject)
@@ -44,10 +50,12 @@ public class PickUpScript : MonoBehaviour
                 CurrentObject = HitInfo.rigidbody;
                 CurrentObject.useGravity = false;
                 IsInRange = true; // Object is in range and can be picked up
+                PickupPoint.gameObject.SetActive(true); // Activate PickupPoint when in range
             }
             else
             {
                 IsInRange = false; // Object is not in range
+                PickupPoint.gameObject.SetActive(false); // Deactivate PickupPoint when not in range
             }
         }
 
