@@ -14546,6 +14546,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1119893482753544579, guid: 4995dd91264436a49863978e55f96784, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2200192502107207546, guid: 4995dd91264436a49863978e55f96784, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -16557,6 +16561,7 @@ GameObject:
   - component: {fileID: 1522441385}
   - component: {fileID: 1522441384}
   - component: {fileID: 1522441383}
+  - component: {fileID: 1522441386}
   m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -16642,6 +16647,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522441381}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1522441386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522441381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e26ab41a755b04ea97bb96408960aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlockingLayer:
+    m_Bits: 8
+  spacialRotationScript: {fileID: 0}
+  pickUpScript: {fileID: 870983844}
+  isLookingAtObject: 0
 --- !u!1 &1524104957
 GameObject:
   m_ObjectHideFlags: 0
@@ -19513,7 +19535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1798877945
 Transform:
   m_ObjectHideFlags: 0
