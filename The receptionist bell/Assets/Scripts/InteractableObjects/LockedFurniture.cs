@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class LockedFurniture : MonoBehaviour
 {
     public List<GameObject> objectsToDeactivate; // List of objects to deactivate when "E" is pressed.
+    public List<Animator> animatorsToPlay; // List of animators to trigger animations.
 
     public GameObject instruction1;
     public GameObject instruction2; // The new UI element to open or activate.
@@ -11,7 +12,6 @@ public class LockedFurniture : MonoBehaviour
 
     private float interactionDistance = 3f; // Maximum interaction distance.
     private bool isLookingAtObject = false; // Track if the player is looking at the object.
-
     private bool hasInteracted = false; // Track if the interaction has occurred.
 
     private void Start()
@@ -87,6 +87,13 @@ public class LockedFurniture : MonoBehaviour
 
         // Deactivate a list of objects (add more if needed)
         DeactivateObjects();
+
+        // Trigger animations on the list of animators
+        foreach (var animator in animatorsToPlay)
+        {
+            animator.SetTrigger("IsActive");
+            animator.SetTrigger("IsActive1");
+        }
     }
 
     // Add this method to deactivate a list of objects

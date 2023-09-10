@@ -7,6 +7,7 @@ public class CabinetDoorAnimationScript : MonoBehaviour
     public Animator animator02;
     public AudioSource audioSource; // Reference to the AudioSource component for playing the sound
     public List<GameObject> objectsToDeactivate; // List of objects to deactivate
+    public List<Rigidbody> objectsToUnkinematic; // List of Rigidbodies to set non-kinematic
 
     private void OnTriggerEnter(Collider other)
     {
@@ -27,6 +28,12 @@ public class CabinetDoorAnimationScript : MonoBehaviour
             foreach (GameObject obj in objectsToDeactivate)
             {
                 obj.SetActive(false);
+            }
+
+            // Set the Rigidbodies in objectsToUnkinematic to non-kinematic
+            foreach (Rigidbody rb in objectsToUnkinematic)
+            {
+                rb.isKinematic = false;
             }
         }
     }
