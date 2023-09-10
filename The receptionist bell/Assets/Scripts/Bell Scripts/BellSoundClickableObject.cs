@@ -5,6 +5,7 @@ public class BellSoundClickableObject : MonoBehaviour
     public AudioClip bellSound;
     public GameObject player;
     public GameObject objectPrefab; // Reference to the prefab you want to instantiate
+    public GameObject Paper5;
     private float thresholdDistance = 3f;
 
     private int globalCounter = 0;
@@ -84,6 +85,7 @@ public class BellSoundClickableObject : MonoBehaviour
         {
             TeleportToOutsidePosition();
             ResetToOriginalScale();
+            Paper5.SetActive(true);
         }
     }
 
