@@ -11,6 +11,10 @@ TagManager:
   - W
   - O
   - RustKey
+  - Aristotele
+  - Birestotele
+  - Cirestotele
+  - Direstotele
   layers:
   - Default
   - TransparentFX
