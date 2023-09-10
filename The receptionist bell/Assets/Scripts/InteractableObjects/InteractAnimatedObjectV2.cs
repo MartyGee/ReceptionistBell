@@ -5,7 +5,7 @@ public class InteractAnimatedObjectV2 : MonoBehaviour
 {
     public GameObject instruction;
     public AudioClip sound;
-    public Animator animator;
+    public List<Animator> animators; // List of animators to trigger animations.
 
     private float interactionDistance = 3f;
     private bool isOpen = false; // Track if the drawer is open.
@@ -34,7 +34,11 @@ public class InteractAnimatedObjectV2 : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 // Toggle the isOpen flag and set the Animator parameter accordingly.
-                animator.SetTrigger("IsOpen");
+                isOpen = !isOpen;
+                foreach (var animator in animators)
+                {
+                    animator.SetTrigger("IsOpen");
+                }
 
                 AudioSource.PlayClipAtPoint(sound, transform.position);
 

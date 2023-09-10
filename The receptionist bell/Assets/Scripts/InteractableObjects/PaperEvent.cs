@@ -42,6 +42,16 @@ public class PaperEvent : MonoBehaviour
                 {
                     PerformAction(); // Perform the action when "E" is pressed.
                 }
+                else
+                {
+                    // If the UI is closed, reopen it
+                    isOpen = true;
+                    paperUiElement.SetActive(true);
+                    UnlockCursor();
+                    sound.Play();
+                    mouseLookScript.ToggleCameraActivity(false);
+                    characterController.enabled = false;
+                }
             }
         }
         else
@@ -53,7 +63,6 @@ public class PaperEvent : MonoBehaviour
             }
         }
     }
-
     // Checks if the player is looking at the object and within the interaction distance
     private bool CanInteractWithObject()
     {
