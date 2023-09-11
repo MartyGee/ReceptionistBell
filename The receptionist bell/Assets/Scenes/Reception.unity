@@ -13233,11 +13233,11 @@ MonoBehaviour:
   m_text: 'Gideon''s seat
 
 
-    - He is a studious of the northen history
+    - He is a cartographer
 
 
-    -
-    He really likes ancient objects'
+    - He''d like the know
+    the time'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15499,10 +15499,11 @@ MonoBehaviour:
   m_text: 'Elliot''s seat
 
 
-    - He is an opal miner
+    - He is an adventurer
 
 
-    - He really likes swords'
+    - He loves ancient northen
+    culture'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -24426,10 +24427,11 @@ MonoBehaviour:
   m_text: 'Romeo''s seat
 
 
-    - He is an adventurer
+    - He is a blacksmith
 
 
-    - He really likes apples'
+    - He''d love something
+    refreshing'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -30175,11 +30177,10 @@ MonoBehaviour:
   m_text: 'Rodolfo''s seat
 
 
-    - He is a fine gentleman
+    - He is a banker
 
 
-    - He really likes
-    gold'
+    - He really likes old objects'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
