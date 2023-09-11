@@ -4969,7 +4969,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Direstotele
+  m_text: Elliot
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5649,7 +5649,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cirestotele
+  m_text: Gideon
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9785,7 +9785,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Birestotele
+  m_text: Rodolfo
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10857,7 +10857,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Aristotele
+  m_text: Romeo
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13230,7 +13230,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Cirestotele''s seat
+  m_text: 'Gideon''s seat
 
 
     - He is a studious of the northen history
@@ -15496,14 +15496,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Direstotele''s seat
+  m_text: 'Elliot''s seat
 
 
     - He is an opal miner
 
 
-    - He really likes
-    swords'
+    - He really likes swords'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -24424,14 +24423,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Aristotele''s seat
+  m_text: 'Romeo''s seat
 
 
     - He is an adventurer
 
 
-    - He really likes
-    apples'
+    - He really likes apples'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -30174,7 +30172,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Birestotele''s seat
+  m_text: 'Rodolfo''s seat
 
 
     - He is a fine gentleman
@@ -32314,7 +32312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3444920905790765921, guid: 88a6fe5cd19a7824d844a0a2baf7c380, type: 3}
       propertyPath: m_Name
-      value: Aristotele
+      value: Romeo
       objectReference: {fileID: 0}
     - target: {fileID: 3444920905790765921, guid: 88a6fe5cd19a7824d844a0a2baf7c380, type: 3}
       propertyPath: m_IsActive
@@ -33286,7 +33284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4301740173756851555, guid: a73f46e0b8fbc2d4aae646acafcbebe9, type: 3}
       propertyPath: m_Name
-      value: Direstotile
+      value: Elliot
       objectReference: {fileID: 0}
     - target: {fileID: 4301740173756851555, guid: a73f46e0b8fbc2d4aae646acafcbebe9, type: 3}
       propertyPath: m_IsActive
@@ -33798,7 +33796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5110164800170357548, guid: f9fcbcbf3eb7dbe4dbb4a5ba8484d963, type: 3}
       propertyPath: m_Name
-      value: Cirestotele
+      value: Gideon
       objectReference: {fileID: 0}
     - target: {fileID: 5110164800170357548, guid: f9fcbcbf3eb7dbe4dbb4a5ba8484d963, type: 3}
       propertyPath: m_IsActive
@@ -34396,7 +34394,7 @@ PrefabInstance:
       objectReference: {fileID: 845117985}
     - target: {fileID: 8091171706593425752, guid: 7e176e0abde89834baf82cec0251b1d9, type: 3}
       propertyPath: m_Name
-      value: Birestotile
+      value: Rodolfo
       objectReference: {fileID: 0}
     - target: {fileID: 8091171706593425752, guid: 7e176e0abde89834baf82cec0251b1d9, type: 3}
       propertyPath: m_IsActive
