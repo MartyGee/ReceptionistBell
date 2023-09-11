@@ -106,7 +106,3 @@ public class InteractableStaticObject : MonoBehaviour
         Cursor.visible = true; // Make the cursor visible.
     }
 }
-
-
-
-

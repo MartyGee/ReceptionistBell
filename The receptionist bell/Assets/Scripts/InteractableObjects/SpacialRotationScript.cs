@@ -16,11 +16,11 @@ public class SpacialRotationScript : MonoBehaviour
 
     void Update()
     {
-        // Use Physics.Raycast with infinite distance
+        // Use Physics.Raycast with infinite distance and the "Pickup" layer
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, float.MaxValue))
+        if (Physics.Raycast(ray, out hit, float.MaxValue, LayerMask.GetMask("Pickup")))
         {
             if (hit.collider.gameObject == gameObject)
             {
@@ -123,5 +123,3 @@ public class SpacialRotationScript : MonoBehaviour
         }
     }
 }
-
-//Questo script è solo un test per separare la funzione "oggetto interagibile" dallo script originale (BellSoundClickableObject).
