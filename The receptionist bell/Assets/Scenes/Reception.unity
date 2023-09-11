@@ -10318,7 +10318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8620564684057602852, guid: f9c77e998969861498a0b2084e8399c4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9c77e998969861498a0b2084e8399c4, type: 3}
@@ -16633,7 +16633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1188175024
 Transform:
   m_ObjectHideFlags: 0
@@ -19139,7 +19139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1353849552
 Transform:
   m_ObjectHideFlags: 0
@@ -20204,7 +20204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1400251468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26111,19 +26111,19 @@ MonoBehaviour:
     sure they are sat aroung the table.
 
 
-    Second: Give them a piece of fruit.
+    Second: Give each one an object related
+    to their job.
 
 
-    Third:
-    Make sure they have their own hats.
+    Third: Give them an object they stated they like.
 
 
-    Fourth: Don''t make them upset.
+    Fourth:
+    Don''t make them upset.
 
 
-    It
-    is common knowledge that all of this has to be done in less than 5 minutes to
-    seem as polite as ever.'
+    It is common knowledge that all of this has to
+    be done in less than 5 minutes to seem as polite as ever.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
