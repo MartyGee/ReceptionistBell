@@ -15,9 +15,43 @@ public class ConditionChecker : MonoBehaviour
 
     private bool guestsCollidersActivated = false; // Flag to track if GuestsColliders are activated
 
+    private float timerDuration = 300.0f; // 5 minutes in seconds
+    private float timer = 0.0f;
+    private bool timerActive = false;
+
+    public List<GameObject> ObjectsToActivateOnTimeout; // List of objects to activate when the timer reaches 0
+    public List<GameObject> ObjectsToDeactivateOnTimeout; // List of objects to deactivate when the timer reaches 0
+
     private void Start()
     {
         DeactivateObjects();
+        ActivateTimer(); // Start the timer when the object is activated
+    }
+
+    private void Update()
+    {
+        // Update the timer if it's active
+        if (timerActive)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                // Timer has elapsed, do something here
+                timerActive = false;
+                Debug.Log("Time is over.");
+
+                // Deactivate and activate objects when the timer reaches 0
+                ActivateObjectsFromList(ObjectsToActivateOnTimeout);
+                DeactivateObjectsFromList(ObjectsToDeactivateOnTimeout);
+            }
+        }
+    }
+
+    public void ActivateTimer()
+    {
+        // Start the timer
+        timer = timerDuration;
+        timerActive = true;
     }
 
     public void ObjectEntered(string tag)
@@ -111,6 +145,9 @@ public class ConditionChecker : MonoBehaviour
             Debug.Log("Both Phase 1 and Phase 2 conditions are met. Activating and deactivating objects.");
             ActivateObjectsFromList(ObjectsToActivate);
             DeactivateObjectsFromList(ObjectsToDeactivate);
+
+            // Start the timer when conditions are met
+            ActivateTimer();
         }
     }
 
@@ -145,6 +182,7 @@ public class ConditionChecker : MonoBehaviour
         DeactivateObjectsFromList(ObjectsToActivate);
     }
 }
+
 
 
 

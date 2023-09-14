@@ -6,6 +6,8 @@ public class PaperEvent : MonoBehaviour
     public List<GameObject> objectsToActivate = new List<GameObject>();
     public List<GameObject> objectsToDeactivate = new List<GameObject>();
     public List<GameObject> objectsToDestroy = new List<GameObject>(); // List for objects to destroy.
+
+    [Header("Functions")]
     public GameObject instruction;
     public GameObject thisTrigger;
     public GameObject paperUiElement; // The new UI element to open or activate.
