@@ -83,9 +83,16 @@ public class BellSoundClickableObject : MonoBehaviour
         }
         else if (globalCounter == 12)
         {
-            TeleportToOutsidePosition();
+            // Deactivate the object (e.g., disable it)
+            gameObject.SetActive(false);
+            ResetToOriginalPosition();
             ResetToOriginalScale();
+            isObjectActivated = false;
             Paper5.SetActive(true);
+        }
+        else if (globalCounter == 13)
+        {
+            // Handle any further logic for counter 13
         }
     }
 
@@ -139,4 +146,5 @@ public class BellSoundClickableObject : MonoBehaviour
         }
     }
 }
+
 
