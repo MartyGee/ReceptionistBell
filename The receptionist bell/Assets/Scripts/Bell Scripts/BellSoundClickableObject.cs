@@ -4,7 +4,15 @@ public class BellSoundClickableObject : MonoBehaviour
 {
     public AudioClip bellSound;
     public GameObject player;
+
+    [Header("Animations to play on counter 10")]
+    public LadderAnimation ladderAnimationScript;
+    public WallLadderAnimation wallLadderAnimationScript;
+
+    [Header("PaperSmooth1 spawn on counter 11")]
     public GameObject objectPrefab; // Reference to the prefab you want to instantiate
+
+    [Header("PaperSmooth5 spawn on counter 12")]
     public GameObject Paper5;
     private float thresholdDistance = 3f;
 
@@ -20,10 +28,6 @@ public class BellSoundClickableObject : MonoBehaviour
     private Vector3 maxBounds = new Vector3(-7f, 1.529f, 7f);
 
     private Vector3 paperPosition = new Vector3(0, 0.509f, 0);
-
-    [Header("Animations to play on counter 10")]
-    public LadderAnimation ladderAnimationScript;
-    public WallLadderAnimation wallLadderAnimationScript;
 
     private bool isObjectActivated = false; // Track if the object is activated
 
