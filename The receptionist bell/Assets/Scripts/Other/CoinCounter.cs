@@ -1,63 +1,54 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class CoinCounter : MonoBehaviour
 {
-    public Collider goldCollider;
-    public int requiredGoldCoins;
-    public List<GameObject> objectsToActivate;
-    public List<GameObject> objectsToDeactivate;
+    public int requiredObjectsCount = 7; // Set the number of required objects
+    private int enteredCount = 0;
 
-    private int totalGoldCoinsCollected = 0;
-    private bool conditionMet = false;
-
-    private void Update()
-    {
-        // Check the condition only if it's not already met
-        if (!conditionMet)
-        {
-            if (totalGoldCoinsCollected >= requiredGoldCoins)
-            {
-                // Activate objects when the condition is met
-                ActivateObjects(objectsToActivate);
-                conditionMet = true;
-            }
-        }
-        else
-        {
-            // Deactivate objects when the condition is no longer met
-            if (totalGoldCoinsCollected < requiredGoldCoins)
-            {
-                DeactivateObjects(objectsToDeactivate);
-                conditionMet = false;
-            }
-        }
-    }
+    public GameObject[] objectsToActivate; // List of objects to activate
+    public GameObject[] objectsToDeactivate; // List of objects to deactivate
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check the tag of the entering object
         if (other.CompareTag("GoldCoin"))
         {
-            totalGoldCoinsCollected++;
-            // Send a debug message when a gold coin enters the collider
-            Debug.Log("Gold Coin entered the collider.");
+            enteredCount++;
+            Debug.Log("GoldCoin entered the collider.");
+
+            if (enteredCount == requiredObjectsCount)
+            {
+                Debug.Log("All 7 GoldCoins have entered the collider.");
+
+                // Activate objects
+                foreach (var obj in objectsToActivate)
+                {
+                    obj.SetActive(true);
+                }
+
+                // Deactivate objects
+                foreach (var obj in objectsToDeactivate)
+                {
+                    obj.SetActive(false);
+                }
+
+                // You can add any other desired actions or logic here.
+            }
         }
     }
 
-    private void ActivateObjects(List<GameObject> objects)
+    // Optionally, you can reset the count when GoldCoins exit.
+    private void OnTriggerExit(Collider other)
     {
-        foreach (GameObject obj in objects)
+        if (other.CompareTag("GoldCoin"))
         {
-            obj.SetActive(true);
-        }
-    }
+            enteredCount--;
+            Debug.Log("GoldCoin exited the collider.");
 
-    private void DeactivateObjects(List<GameObject> objects)
-    {
-        foreach (GameObject obj in objects)
-        {
-            obj.SetActive(false);
+            if (enteredCount < 0)
+            {
+                enteredCount = 0;
+            }
         }
     }
 }
+
