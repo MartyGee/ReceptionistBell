@@ -4,19 +4,24 @@ public class BellSoundClickableObject : MonoBehaviour
 {
     public AudioClip bellSound;
     public GameObject player;
-
+    [Space]
+    public int globalCounter;
     [Header("Animations to play on counter 10")]
     public LadderAnimation ladderAnimationScript;
     public WallLadderAnimation wallLadderAnimationScript;
 
     [Header("PaperSmooth1 spawn on counter 11")]
-    public GameObject objectPrefab; // Reference to the prefab you want to instantiate
+    public GameObject Paper1; // Reference to the prefab you want to instantiate
 
     [Header("PaperSmooth5 spawn on counter 12")]
     public GameObject Paper5;
+
+    [Header("PaperSmooth5 spawn on counter 13")]
+    public GameObject Paper7;
+
     private float thresholdDistance = 3f;
 
-    private int globalCounter = 0;
+    
 
     private Vector3 originalPosition = new Vector3(0, 1.529f, 0);
     private Vector3 upsideDownPosition = new Vector3(0, 7.456f, 0);
@@ -79,7 +84,7 @@ public class BellSoundClickableObject : MonoBehaviour
             if (!isObjectActivated)
             {
                 // Activate the object (e.g., enable it)
-                objectPrefab.SetActive(true);
+                Paper1.SetActive(true);
                 isObjectActivated = true;
             }
             TeleportToOutsidePosition();
@@ -96,7 +101,8 @@ public class BellSoundClickableObject : MonoBehaviour
         }
         else if (globalCounter == 13)
         {
-            // Handle any further logic for counter 13
+            TeleportToOutsidePosition();
+            Paper7.SetActive(true);
         }
     }
 
