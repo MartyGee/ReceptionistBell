@@ -8,19 +8,10 @@ public class PuzzleManager : MonoBehaviour
     public List<string> validWords = new List<string>(); // Add other valid words here
 
     [Header("Word: BELL")]
-    public AudioSource audioSource; 
+    public AudioSource BellSound; 
 
     [Header("Word: WELL")]
-    public GameObject TestObject;
-
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-
-        // Get the AudioSource component from the GameObject
-        audioSource = GetComponent<AudioSource>();
-    }
+    public GameObject Well;
 
     // Register trigger boxes with the PuzzleManager
     public void RegisterTriggerBox(TriggerBox triggerBox)
@@ -85,17 +76,27 @@ public class PuzzleManager : MonoBehaviour
                 // Play the audio when "BELL" is formed
                 if (formedWord == "BELL")
                 {
-                    audioSource.Play();
+                    PlayBellSound();
                 }
 
                 else if (formedWord == "WELL")
                 {
-                    TestObject.SetActive(true);
+                    Well.SetActive(true);
                 }
 
                 ClearTags();
                 break;
             }
+        }
+    }
+
+    private void PlayBellSound()
+    {
+        // Check if the AudioSource component is not null
+        if (BellSound != null)
+        {
+            // Play the bell sound
+            BellSound.Play();
         }
     }
 
