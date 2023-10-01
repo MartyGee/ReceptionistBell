@@ -16,8 +16,10 @@ public class BellSoundClickableObject : MonoBehaviour
     [Header("PaperSmooth5 spawn on counter 12")]
     public GameObject Paper5;
 
-    [Header("PaperSmooth5 spawn on counter 13")]
+    [Header("PaperSmooth7 spawn on counter 13")]
     public GameObject Paper7;
+    [Header("PaperSmooth6 despawn on counter 13")]
+    public GameObject Paper6TimesUp;
 
     private float thresholdDistance = 3f;
 
@@ -103,6 +105,7 @@ public class BellSoundClickableObject : MonoBehaviour
         {
             TeleportToOutsidePosition();
             Paper7.SetActive(true);
+            Paper6TimesUp.SetActive(false);
         }
     }
 

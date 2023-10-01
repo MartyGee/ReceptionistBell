@@ -5,8 +5,13 @@ public class PuzzleManager : MonoBehaviour
 {
     public static PuzzleManager Instance;
     private Dictionary<int, string> tagsByPosition = new Dictionary<int, string>();
-    private List<string> validWords = new List<string>() { "BELL", "WELL","BOWL","BLOW"}; // Add other valid words here
-    private AudioSource audioSource; // Reference to the AudioSource component
+    public List<string> validWords = new List<string>(); // Add other valid words here
+
+    [Header("Word: BELL")]
+    public AudioSource audioSource; 
+
+    [Header("Word: WELL")]
+    public GameObject TestObject;
 
     private void Awake()
     {
@@ -78,9 +83,14 @@ public class PuzzleManager : MonoBehaviour
                 Debug.Log("Word formed: " + formedWord);
 
                 // Play the audio when "BELL" is formed
-                if (formedWord == "BELL" && audioSource != null && audioSource.clip != null)
+                if (formedWord == "BELL")
                 {
                     audioSource.Play();
+                }
+
+                else if (formedWord == "WELL")
+                {
+                    TestObject.SetActive(true);
                 }
 
                 ClearTags();
