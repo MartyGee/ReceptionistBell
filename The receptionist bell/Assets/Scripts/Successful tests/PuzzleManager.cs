@@ -9,9 +9,11 @@ public class PuzzleManager : MonoBehaviour
 
     [Header("Word: BELL")]
     public AudioSource BellSound; 
+    public GameObject BELLpaper8;
 
     [Header("Word: WELL")]
     public GameObject Well;
+    public GameObject WELLpaper8;
 
     // Register trigger boxes with the PuzzleManager
     public void RegisterTriggerBox(TriggerBox triggerBox)
@@ -77,11 +79,13 @@ public class PuzzleManager : MonoBehaviour
                 if (formedWord == "BELL")
                 {
                     PlayBellSound();
+                    BELLpaper8.SetActive(true);
                 }
 
                 else if (formedWord == "WELL")
                 {
                     Well.SetActive(true);
+                    WELLpaper8.SetActive(true);
                 }
 
                 ClearTags();
