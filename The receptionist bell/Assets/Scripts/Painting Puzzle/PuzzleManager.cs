@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class PuzzleManager : MonoBehaviour
 {
     public static PuzzleManager Instance;
-    private Dictionary<int, string> tagsByPosition = new Dictionary<int, string>();
+    private Dictionary<int, string> tagsByNumber = new Dictionary<int, string>();
     public List<string> validWords = new List<string>(); // Add other valid words here
 
     [Header("Word: BELL")]
@@ -12,9 +12,11 @@ public class PuzzleManager : MonoBehaviour
     public GameObject BELLpaper8;
 
     [Header("Word: WELL")]
-    public List<GameObject> objectsToActivate; // List of objects to activate
-    public List<GameObject> objectsToDeactivate; // List of objects to activate
+    public List<GameObject> objectsToActivateWELL; 
+    public List<GameObject> objectsToDeactivateWELL; 
 
+    [Header("Word: BOWL")]
+    public List<GameObject> objectsToActivateBOWL; 
 
 
     // Register trigger boxes with the PuzzleManager
@@ -24,39 +26,33 @@ public class PuzzleManager : MonoBehaviour
     }
 
     // Handle a tag entering the trigger
-    public void TagEntered(TriggerBox triggerBox, string tag, int triggerPosition)
+    public void TagEntered(TriggerBox triggerBox, string tag, int triggerNumber)
     {
-        Debug.Log("Tag Entered: " + tag + " at position " + triggerPosition);
+        Debug.Log("Tag Entered: " + tag + " at number " + triggerNumber);
 
         // Check if the tag is valid (not empty or "Untagged") and store it based on trigger position
         if (!string.IsNullOrEmpty(tag) && tag != "Untagged")
         {
-            tagsByPosition[triggerPosition] = tag;
+            tagsByNumber[triggerNumber] = tag;
             CheckWordFormation();
         }
     }
 
     // Handle a tag exiting the trigger
-    public void TagExited(TriggerBox triggerBox, string tag, int triggerPosition)
+    public void TagExited(TriggerBox triggerBox, string tag, int triggerNumber)
     {
-        Debug.Log("Tag Exited: " + tag + " from position " + triggerPosition);
+        Debug.Log("Tag Exited: " + tag + " from number " + triggerNumber);
 
         // Check if the tag is valid (not empty or "Untagged") and remove it based on trigger position
         if (!string.IsNullOrEmpty(tag) && tag != "Untagged")
         {
-            tagsByPosition.Remove(triggerPosition);
+            tagsByNumber.Remove(triggerNumber);
             CheckWordFormation();
         }
     }
 
     private void CheckWordFormation()
     {
-        // Debug log statement to print dictionary contents
-        foreach (var kvp in tagsByPosition)
-        {
-            Debug.Log("Trigger Position: " + kvp.Key + ", Tag: " + kvp.Value);
-        }
-
         // Check if the tags of the triggers form any valid words
         foreach (string word in validWords)
         {
@@ -65,12 +61,21 @@ public class PuzzleManager : MonoBehaviour
 
             for (int i = 1; i <= 4; i++)
             {
-                if (!tagsByPosition.ContainsKey(i) || tagsByPosition[i] != word[i - 1].ToString())
+                if (!tagsByNumber.ContainsKey(i))
                 {
                     wordFormed = false;
                     break;
                 }
-                formedWord += tagsByPosition[i];
+
+                string tag = tagsByNumber[i];
+
+                if (tag != null && i <= word.Length && tag != word[i - 1].ToString())
+                {
+                    wordFormed = false;
+                    break;
+                }
+
+                formedWord += tag;
             }
 
             if (wordFormed)
@@ -82,26 +87,33 @@ public class PuzzleManager : MonoBehaviour
                     PlayBellSound();
                     BELLpaper8.SetActive(true);
                 }
-                else if (formedWord == "WELL")
+
+                if (formedWord == "WELL")
                 {
-                    // Activate a list of objects
-                    foreach (var obj in objectsToActivate)
+                    foreach (var obj in objectsToActivateWELL)
                     {
                         obj.SetActive(true);
                     }
 
-                    // Activate a list of objects
-                    foreach (var obj in objectsToDeactivate)
+                    foreach (var obj in objectsToDeactivateWELL)
                     {
                         obj.SetActive(false);
                     }
                 }
 
-                ClearTags();
+                if (formedWord == "BOWL")
+                {
+                    foreach (var obj in objectsToActivateBOWL)
+                    {
+                        obj.SetActive(true);
+                    }
+                }
+
                 break;
             }
         }
     }
+
 
     private void PlayBellSound()
     {
@@ -111,11 +123,6 @@ public class PuzzleManager : MonoBehaviour
             // Play the bell sound
             BellSound.Play();
         }
-    }
-
-    private void ClearTags()
-    {
-        tagsByPosition.Clear();
     }
 }
 

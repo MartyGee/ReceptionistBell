@@ -152,9 +152,9 @@ public class BellSoundClickableObject : MonoBehaviour
     // Add a new method to detect collision with the object being moved
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("MovableObjectTag"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Pickup"))
         {
-            // Ring the bell when a movable object collides with it
+            // Ring the bell when a movable object on the "PickUpLayer" collides with it
             RingBell();
         }
     }
