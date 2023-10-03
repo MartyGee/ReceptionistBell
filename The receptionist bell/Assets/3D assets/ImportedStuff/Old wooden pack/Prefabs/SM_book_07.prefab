@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -8674069175888634203}
   - component: {fileID: -5000501730297720324}
   - component: {fileID: 7099492557041440291}
+  - component: {fileID: -611347565885459383}
   m_Layer: 3
   m_Name: SM_book_07
   m_TagString: Untagged
@@ -136,3 +137,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.02147101, y: 0.14893144, z: 0.09706549}
   m_Center: {x: 0, y: 0.074464634, z: 0.0000000055879354}
+--- !u!114 &-611347565885459383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4648433028451890140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1238417ee1dfca8408dc0c91728c7baa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 0}
+  collisionSound: {fileID: 8300000, guid: a6985f206cf42bc4c8a3cbd475220c74, type: 3}
+  volumeMultiplier: 1
+  minVolume: 0
+  maxVolume: 100
