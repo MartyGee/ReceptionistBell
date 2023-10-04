@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 131
+  controlID: 18
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 132
+  controlID: 19
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 133
+  controlID: 20
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -400,10 +400,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 1182}
-      m_SelectedIDs: 18de0000
-      m_LastClickedID: 56856
-      m_ExpandedIDs: d084ffff6686ffff62caffffcad5ffff32e1ffff9aecffff36fbffff2eb300007ad9000036df0000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 5cfefeff
+      m_LastClickedID: -65956
+      m_ExpandedIDs: 6c45ffff126affff166affff186affff5ee4ffff62e4ffff38fbffff10700000d0740000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -419,7 +419,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 8}
+        m_ClientGUIView: {fileID: 9}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -652,9 +652,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 7.3824644, y: -7.1018734, z: -15.686201}
+    m_Target: {x: -21.967926, y: -9.453011, z: 0.7349268}
     speed: 2
-    m_Value: {x: 7.3824644, y: -7.1018734, z: -15.686201}
+    m_Value: {x: -21.967926, y: -9.453011, z: 0.7349268}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -701,9 +701,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.029607637, y: 0.9456316, z: -0.31525868, w: 0.088029765}
+    m_Target: {x: -0.25131848, y: 0.6402438, z: -0.23429619, w: -0.68872267}
     speed: 2
-    m_Value: {x: 0.029574635, y: 0.9445776, z: -0.31490728, w: 0.08793164}
+    m_Value: {x: -0.25137988, y: 0.63847405, z: -0.23364961, w: -0.68888813}
   m_Size:
     m_Target: 10
     speed: 2
@@ -1075,23 +1075,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/3D assets/ImportedStuff/Old wooden pack/Prefabs
+    - Assets/3D assets/ImportedStuff/GeneralProps/Desk Lamp
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/3D assets/ImportedStuff/Old wooden pack/Prefabs
+  - Assets/3D assets/ImportedStuff/GeneralProps/Desk Lamp
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Utente\Documents\GitHub\ReceptionistBell\The receptionist
     bell
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 338}
-    m_SelectedIDs: 10810000
-    m_LastClickedID: 33040
-    m_ExpandedIDs: 00000000928000009480000096800000988000009a8000009c8000009e800000a0800000a2800000a4800000a6800000a8800000aa800000ac800000ae800000b0800000b2800000b4800000b6800000b8800000ba800000bc800000be800000c08000005681000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 111}
+    m_SelectedIDs: 4aa50000
+    m_LastClickedID: 42314
+    m_ExpandedIDs: 00000000ac800000ae800000b0800000b2800000b4800000b6800000b8800000ba800000bc800000be800000c0800000c2800000c4800000c6800000c8800000ca800000cc800000ce800000d0800000d2800000d4800000d6800000d8800000da8000004aa5000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1119,7 +1119,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000928000009480000096800000988000009a8000009c8000009e800000a0800000a2800000a4800000a6800000a8800000aa800000ac800000ae800000b0800000b2800000b4800000b6800000b8800000ba800000bc800000be800000c0800000
+    m_ExpandedIDs: 00000000ac800000ae800000b0800000b2800000b4800000b6800000b8800000ba800000bc800000be800000c0800000c2800000c4800000c6800000c8800000ca800000cc800000ce800000d0800000d2800000d4800000d6800000d8800000da800000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
