@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class PuzzleManager : MonoBehaviour
@@ -10,14 +11,17 @@ public class PuzzleManager : MonoBehaviour
     [Header("Word: BELL")]
     public AudioSource BellSound;
     public GameObject BELLpaper8;
+    private bool bellSoundPlayed = false; // Flag to track if the "BELL" sound has been played
 
     [Header("Word: WELL")]
-    public List<GameObject> objectsToActivateWELL; 
-    public List<GameObject> objectsToDeactivateWELL; 
+    public List<GameObject> objectsToActivateWELL;
+    public List<GameObject> objectsToDeactivateWELL;
 
     [Header("Word: BOWL")]
-    public List<GameObject> objectsToActivateBOWL; 
+    public List<GameObject> objectsToActivateBOWL;
 
+    [Header("Word: BOWL")]
+    public List<GameObject> objectsToActivateLOBE;
 
     // Register trigger boxes with the PuzzleManager
     public void RegisterTriggerBox(TriggerBox triggerBox)
@@ -25,7 +29,7 @@ public class PuzzleManager : MonoBehaviour
         // You can add any necessary logic here to handle registering trigger boxes if needed
     }
 
-    // Handle a tag entering the trigger
+    //Enter the trigger
     public void TagEntered(TriggerBox triggerBox, string tag, int triggerNumber)
     {
         Debug.Log("Tag Entered: " + tag + " at number " + triggerNumber);
@@ -38,7 +42,7 @@ public class PuzzleManager : MonoBehaviour
         }
     }
 
-    // Handle a tag exiting the trigger
+    //Exited the trigger
     public void TagExited(TriggerBox triggerBox, string tag, int triggerNumber)
     {
         Debug.Log("Tag Exited: " + tag + " from number " + triggerNumber);
@@ -82,10 +86,11 @@ public class PuzzleManager : MonoBehaviour
             {
                 Debug.Log("Word formed: " + formedWord);
 
-                if (formedWord == "BELL")
+                if (formedWord == "BELL" && !bellSoundPlayed)
                 {
                     PlayBellSound();
                     BELLpaper8.SetActive(true);
+                    bellSoundPlayed = true; // Set the flag to true so that the sound won't play again
                 }
 
                 if (formedWord == "WELL")
@@ -109,15 +114,21 @@ public class PuzzleManager : MonoBehaviour
                     }
                 }
 
+                if (formedWord == "LOBE")
+                {
+                    foreach (var obj in objectsToActivateLOBE)
+                    {
+                        obj.SetActive(true);
+                    }
+                }
+
                 break;
             }
         }
     }
 
-
     private void PlayBellSound()
     {
-        // Check if the AudioSource component is not null
         if (BellSound != null)
         {
             // Play the bell sound
