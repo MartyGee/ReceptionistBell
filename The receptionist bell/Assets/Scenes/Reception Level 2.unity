@@ -4153,6 +4153,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1655793494906758556, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 1620922769}
+    - target: {fileID: 1655793494906758556, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
+      propertyPath: instruction
+      value: 
+      objectReference: {fileID: 393782543}
+    - target: {fileID: 1655793494906758556, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
+      propertyPath: paperUiElement
+      value: 
+      objectReference: {fileID: 729396441}
+    - target: {fileID: 1655793494906758556, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
+      propertyPath: mouseLookScript
+      value: 
+      objectReference: {fileID: 963194229}
+    - target: {fileID: 1655793494906758556, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
+      propertyPath: characterController
+      value: 
+      objectReference: {fileID: 870983842}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
 --- !u!1 &1014534318 stripped
@@ -4189,24 +4209,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.94, y: -0.02, z: 1.36}
   m_Center: {x: 0, y: 0.045, z: 0.16}
---- !u!114 &1014534323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1014534318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72507e1d496bf664d8458bb0787c07fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  instruction: {fileID: 393782543}
-  thisTrigger: {fileID: 1014534318}
-  paperUiElement: {fileID: 729396441}
-  sound: {fileID: 1620922769}
-  mouseLookScript: {fileID: 963194229}
-  characterController: {fileID: 870983842}
 --- !u!1 &1025942708
 GameObject:
   m_ObjectHideFlags: 0
