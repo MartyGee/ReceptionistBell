@@ -4,10 +4,26 @@ public class BellSoundClickableObject : MonoBehaviour
 {
     public AudioClip bellSound;
     public GameObject player;
-    public GameObject objectPrefab; // Reference to the prefab you want to instantiate
+    [Space]
+    public int globalCounter;
+    [Header("Animations to play on counter 10")]
+    public LadderAnimation ladderAnimationScript;
+    public WallLadderAnimation wallLadderAnimationScript;
+
+    [Header("PaperSmooth1 spawn on counter 11")]
+    public GameObject Paper1; // Reference to the prefab you want to instantiate
+
+    [Header("PaperSmooth5 spawn on counter 12")]
+    public GameObject Paper5;
+
+    [Header("PaperSmooth7 spawn on counter 13")]
+    public GameObject Paper7;
+    [Header("PaperSmooth6 despawn on counter 13")]
+    public GameObject Paper6TimesUp;
+
     private float thresholdDistance = 3f;
 
-    private int globalCounter = 0;
+    
 
     private Vector3 originalPosition = new Vector3(0, 1.529f, 0);
     private Vector3 upsideDownPosition = new Vector3(0, 7.456f, 0);
@@ -19,10 +35,6 @@ public class BellSoundClickableObject : MonoBehaviour
     private Vector3 maxBounds = new Vector3(-7f, 1.529f, 7f);
 
     private Vector3 paperPosition = new Vector3(0, 0.509f, 0);
-
-    [Header("Animations to play on counter 10")]
-    public LadderAnimation ladderAnimationScript;
-    public WallLadderAnimation wallLadderAnimationScript;
 
     private bool isObjectActivated = false; // Track if the object is activated
 
@@ -74,7 +86,7 @@ public class BellSoundClickableObject : MonoBehaviour
             if (!isObjectActivated)
             {
                 // Activate the object (e.g., enable it)
-                objectPrefab.SetActive(true);
+                Paper1.SetActive(true);
                 isObjectActivated = true;
             }
             TeleportToOutsidePosition();
@@ -82,8 +94,18 @@ public class BellSoundClickableObject : MonoBehaviour
         }
         else if (globalCounter == 12)
         {
+            // Deactivate the object (e.g., disable it)
+            gameObject.SetActive(false);
             ResetToOriginalPosition();
             ResetToOriginalScale();
+            isObjectActivated = false;
+            Paper5.SetActive(true);
+        }
+        else if (globalCounter == 13)
+        {
+            TeleportToOutsidePosition();
+            Paper7.SetActive(true);
+            Paper6TimesUp.SetActive(false);
         }
     }
 
@@ -130,11 +152,12 @@ public class BellSoundClickableObject : MonoBehaviour
     // Add a new method to detect collision with the object being moved
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("MovableObjectTag"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Pickup"))
         {
-            // Ring the bell when a movable object collides with it
+            // Ring the bell when a movable object on the "PickUpLayer" collides with it
             RingBell();
         }
     }
 }
+
 

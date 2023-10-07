@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 90a7f5d0b0ef3744db0c27499aea2268
   - enabled: 1
-    path: Assets/Scenes/Reception.unity
+    path: Assets/Scenes/Reception Level 1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Reception Level 2.unity
+    guid: b7b6121227ba0a741b88efaf2d59b1f1
   m_configObjects: {}

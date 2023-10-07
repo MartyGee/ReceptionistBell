@@ -5,6 +5,23 @@ TagManager:
   serializedVersion: 2
   tags:
   - MovableObjectTag
+  - B
+  - E
+  - L
+  - W
+  - O
+  - RustKey
+  - Aristotele
+  - Birestotele
+  - Cirestotele
+  - Direstotele
+  - Aristotele's stuff
+  - Birestotele's stuff
+  - Cirestotele's stuff
+  - Direstotele's stuff
+  - CopperCoin
+  - GoldCoin
+  - SilverCoin
   layers:
   - Default
   - TransparentFX
@@ -13,7 +30,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - IsObstacle
   - 
   - 
   - 
